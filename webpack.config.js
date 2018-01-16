@@ -9,6 +9,8 @@ const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
 const merge = require("webpack-merge");
 const parts = require("./webpack.parts");
 
+const webpack = require(`webpack`);
+
 const port = 3000;
 
 const PATHS = {
@@ -26,18 +28,8 @@ const commonConfig = merge([
     module: {
       rules: [
         {
-          test: /\.html$/,
-          loader: `html-loader`,
-          options: {
-            attrs: [
-              `img:src`,
-              `source:srcset`
-            ]
-          }
-        },
-        {
           test: /\.(jpe?g|png|gif|webp|svg)$/,
-          use:[
+          use: [
             {
               loader: `file-loader`,
               options: {
@@ -45,7 +37,7 @@ const commonConfig = merge([
                 context: `./src`,
                 name: `[path][name].[ext]`
               }
-            },{
+            }, {
               loader: `image-webpack-loader`,
               options: {
                 bypassOnDebug: true,
@@ -55,54 +47,50 @@ const commonConfig = merge([
                 },
                 // optipng.enabled: false will disable optipng
                 optipng: {
-                  enabled: false,
+                  enabled: false
                 },
                 pngquant: {
                   quality: '65-90',
                   speed: 4
                 },
                 gifsicle: {
-                  interlaced: false,
+                  interlaced: false
                 },
                 // the webp option will enable WEBP
                 webp: {
                   quality: 75
                 }
-              },
-            },
+              }
+            }
           ]
-        },
-        {
+        }, {
           test: /\.(js)$/,
           exclude: /node_modules/,
-          loader: `babel-loader`
+          use: [
+            {
+              loader: `babel-loader`
+            }, {
+              loader: `eslint-loader`,
+              options: {
+                fix: true
+              }
+            }
+          ]
         }
       ]
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: "./src/index.html"
-      })
-    ]
+    plugins: [new webpack.ProvidePlugin({'Promise': 'es6-promise', 'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'})]
   }
 ]);
 
 const productionConfig = merge([
-  parts.extractCSS(),
-  {
+  parts.extractCSS(), {
     plugins: [
       new ImageminPlugin({
-        test: /\.(jpe?g)$/i ,
-        plugins: [
-          imageminJpegRecompress({})
-        ]
+        test: /\.(jpe?g)$/i,
+        plugins: [imageminJpegRecompress({})]
       }),
-      new CriticalPlugin({
-        src: 'index.html',
-        inline: true,
-        minify: true,
-        dest: 'index.html'
-      })
+      new CriticalPlugin({src: 'view/layout.php', inline: true, minify: true, dest: 'view/layout.php'})
     ]
   }
 ]);
@@ -114,7 +102,7 @@ const developmentConfig = merge([
       contentBase: PATHS.src
     }
   },
-  parts.loadCSS(),
+  parts.loadCSS()
 ]);
 
 module.exports = env => {
