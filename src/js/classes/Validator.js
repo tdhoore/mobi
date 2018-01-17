@@ -4,6 +4,9 @@ export default class Validator {
   }) {
     //must have items
     this.form = param.form;
+    this.action = this.form.getAttribute(`action`);
+    this.method = this.form.getAttribute(`method`);
+    this.inputs = [];
 
     //listeners
     this.listener = e => this.handleSubmit(e);
@@ -26,11 +29,45 @@ export default class Validator {
   handleSubmit(e) {
     e.preventDefault();
     //check if the form is valid
-    if (this.form.validity) {
+    if (this.form.checkValidity()) {
       //clear all messages
+      this.restInputAllMessages();
+
       //send the data
-      //give okey message
+      this.sendData();
+    } else {
+      //check all the inputs for mistakes
+      this.checkInputs();
     }
+  }
+
+  checkInputs() {
+    this.inputs.forEach(input => {
+      input.checks.forEach(check => {
+        this.checkValidityByName(input.inputElem, check);
+      });
+    });
+  }
+
+  sendData() {
+    return fetch(this.action, {
+      headers: new Headers({Accept: `application/json`}),
+      credentials: `same-origin`,
+      method: this.method,
+      body: new FormData(this.form),
+    }).then(responce => responce.json()).then(this.handleAjaxResult);
+  }
+
+  handleAjaxResult(result) {
+    console.log(result);
+  }
+
+  restInputAllMessages() {
+    const inputs = [...this.form.querySelectorAll(`.validator`)];
+
+    inputs.forEach($input => {
+      this.resetMessage($input);
+    });
   }
 
   handleBlurInput(e, checks) {
@@ -85,9 +122,9 @@ export default class Validator {
   }
 
   addValidationToInput(selector, checks = []) {
-    const $elem = this.form.querySelector(selector);
+    this.inputs.push({inputElem: this.form.querySelector(selector), checks: checks});
 
-    this.addEventListeners($elem, checks);
+    this.addEventListeners(this.inputs[this.inputs.length - 1].inputElem, checks);
   }
 
   addEventListeners($elem, checks) {
