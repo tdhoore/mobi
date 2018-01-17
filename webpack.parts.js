@@ -2,7 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.extractCSS = () => {
   const extractCSS = new ExtractTextPlugin({
-    filename: 'css/style.[hash].css'
+    filename: 'css/style.css'
    });
 
   return  {
@@ -12,7 +12,10 @@ exports.extractCSS = () => {
           {
             test: /\.css$/,
             use: extractCSS.extract({
-              use: [ `css-loader`, 'postcss-loader'],
+              use: [
+                `css-loader`,
+                'postcss-loader'
+              ],
               publicPath: '../'
             })
           }
