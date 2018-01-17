@@ -29,6 +29,7 @@ export default class Validator {
     if (this.form.validity) {
       //clear all messages
       //send the data
+      //give okey message
     }
   }
 
@@ -42,15 +43,14 @@ export default class Validator {
   handleChangeInput(e, checks) {
     const $input = e.currentTarget;
     checks.forEach(check => {
-      this.checkValidityByName($input, check, true, false);
+      this.checkValidityByName($input, check, false);
     });
   }
 
-  checkValidityByName($elem, check, canShowMessage = true, canShowError = true) {
+  checkValidityByName($elem, check, canShowError = true) {
     const isValid = $elem.validity[check.name];
-
-    if (canShowMessage) {
-      this.displayMessage($elem, this.getMessageByType(check.messages, isValid), !isValid && canShowError);
+    if (canShowError || !isValid) {
+      this.displayMessage($elem, this.getMessageByType(check.messages, isValid), !isValid);
     }
   }
 
@@ -84,13 +84,7 @@ export default class Validator {
     $errorElem.textContent = ``;
   }
 
-  addValidationToInput(selector, checks = [
-    {
-      name: ``,
-      message: ``,
-      okeyMessage: ``,
-    },
-  ]) {
+  addValidationToInput(selector, checks = []) {
     const $elem = this.form.querySelector(selector);
 
     this.addEventListeners($elem, checks);
@@ -102,7 +96,7 @@ export default class Validator {
 
     //add listeners
     $elem.addEventListener(`blur`, this.blurListener);
-    $elem.addEventListener(`change`, this.changeListener);
+    $elem.addEventListener(`input`, this.changeListener);
   }
 
   createListeners(checks) {
