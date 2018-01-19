@@ -4,7 +4,7 @@ export default class MobileNav {
     navOpenClass: ``,
     openBtnSelector: ``,
     closeBtnSelector: ``,
-    maxWidth: 0
+    maxWidth: 0,
   }) {
     //nav
     this.nav = document.querySelector(param.navSelector);
