@@ -3,10 +3,12 @@ export default class CustomDropDown {
     selector: ``,
     customClass: ``,
     customOpenClass: ``,
+    customSelectedClass: ``,
   }) {
     this.inputs = [...document.querySelectorAll(param.selector)];
     this.customSelectClass = param.customClass;
     this.customOpenSelectClass = param.customOpenClass;
+    this.customSelectedClass = param.customSelectedClass;
 
     //listeners
     this.clickOptionListener = e => this.handleClickOption(e);
@@ -32,11 +34,11 @@ export default class CustomDropDown {
       //set value data
       $a.dataset.value = $option.value;
 
+      //add listener
+      $a.addEventListener(`click`, this.clickOptionListener);
+
       //add link to list item
       this.addElemToElem($a, $li);
-
-      //add listener
-      $li.addEventListener(`click`, this.clickOptionListener);
 
       results.push($li);
     });
@@ -56,10 +58,6 @@ export default class CustomDropDown {
 
   setContentToContent($elem1, $elem2) {
     $elem1.textContent = $elem2.textContent;
-  }
-
-  handleClickOption() {
-    console.log(`option`);
   }
 
   toggleOpenDropDown($customDropDown) {
