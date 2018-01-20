@@ -11,3 +11,7 @@ html {
   /* stylelint-enable */
   box-sizing: inherit;
 }
+
+.hide {
+  display: none;
+}
