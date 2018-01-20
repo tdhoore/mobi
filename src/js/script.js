@@ -1,9 +1,9 @@
 import Validator from './classes/Validator';
-import CustomDropDown from './classes/CustomDropDown';
+import CustomSelect from './classes/CustomSelect';
 
 const $form = document.querySelector(`form`);
 const validator = new Validator({form: $form});
-const customDropDown = new CustomDropDown({selectSelector: `select`, customSelectClass: `customDropDown`, customOpenSelectClass: `customDropDownOpen`});
+const customSelect = new CustomSelect({selector: `select`, customClass: `customDropDown`, customOpenClass: `customDropDownOpen`});
 
 const init = () => {
   //init form validation
@@ -18,7 +18,7 @@ const init = () => {
     },
   ]);
 
-  customDropDown.init();
+  customSelect.init();
 
 };
 

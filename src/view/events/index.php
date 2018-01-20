@@ -15,8 +15,6 @@
           <option value="4">option4</option>
           <option value="5">option5</option>
         </select>
-        <div class="customDropDown">
-      </div>
     </label>
     <p class="validationComplete"></p>
     <input type="submit" name="submit" value="send"/>

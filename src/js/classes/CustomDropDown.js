@@ -1,62 +1,29 @@
 export default class CustomDropDown {
   constructor(param = {
-    selectSelector: ``,
-    customSelectClass: ``,
-    customOpenSelectClass: ``,
+    selector: ``,
+    customClass: ``,
+    customOpenClass: ``,
   }) {
-    this.selects = [...document.querySelectorAll(param.selectSelector)];
-    this.customSelectClass = param.customSelectClass;
-    this.customOpenSelectClass = param.customOpenSelectClass;
+    this.inputs = [...document.querySelectorAll(param.selector)];
+    this.customSelectClass = param.customClass;
+    this.customOpenSelectClass = param.customOpenClass;
 
     //listeners
-    this.clickFakeSelectListener = e => this.handleClickFakeSelect(e);
     this.clickOptionListener = e => this.handleClickOption(e);
   }
 
-  init() {
-    this.selects.forEach($select => {
-      $select.classList.add(`hide`);
-      this.createCustomSelect($select);
-    });
-  }
-
-  createCustomSelect($select) {
-    const $customSelect = document.createElement(`div`);
-
-    //add customDropdownClass
-    $customSelect.classList.add(this.customSelectClass);
-
-    //add fake select
-    this.addElemToElem(this.createFakeSelect($select), $customSelect);
-
-    //add the created list
-    this.addElemToElem(this.createOptionsList($select), $customSelect);
-
-    //add customselect to the select parent
-    this.addElemToElem($customSelect, $select.parentElement);
-  }
-
-  createFakeSelect($select) {
-    const $result = this.createEmptyLink($select.querySelector(`option`).textContent);
-
-    //add listener to fake select
-    $result.addEventListener(`click`, this.clickFakeSelectListener);
-
-    return $result;
-  }
-
-  createOptionsList($select) {
+  createOptionsList($input) {
     const $list = document.createElement(`ul`);
 
     //add list items
-    this.addElemsToElem(this.createOptions($select), $list);
+    this.addElemsToElem(this.createOptions($input), $list);
 
     return $list;
   }
 
-  createOptions($select) {
+  createOptions($input) {
     const results = [];
-    const options = [...$select.querySelectorAll(`option`)];
+    const options = this.getOptions($input);
 
     options.forEach($option => {
       const $li = document.createElement(`li`);
@@ -89,13 +56,6 @@ export default class CustomDropDown {
 
   setContentToContent($elem1, $elem2) {
     $elem1.textContent = $elem2.textContent;
-  }
-
-  handleClickFakeSelect(e) {
-    e.preventDefault();
-
-    //open or close dropdown
-    this.toggleOpenDropDown(e.currentTarget.parentElement.querySelector(`ul`));
   }
 
   handleClickOption() {
