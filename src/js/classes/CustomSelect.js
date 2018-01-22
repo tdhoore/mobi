@@ -36,7 +36,7 @@ export default class CustomSelect extends CustomDropDown {
     const $customSelect = document.createElement(`div`);
 
     //add customDropdownClass
-    $customSelect.classList.add(this.customSelectClass);
+    $customSelect.classList.add(this.customClass);
 
     //add fake select
     this.addElemToElem(this.createFakeSelect($select), $customSelect);
@@ -57,6 +57,30 @@ export default class CustomSelect extends CustomDropDown {
 
   handleClickOption(e) {
     this.setSelectedOption(e.currentTarget);
+  }
+
+  createOptions($input) {
+    const results = [];
+
+    const options = this.getOptions($input);
+
+    options.forEach($option => {
+      const $li = document.createElement(`li`);
+      const $a = this.createEmptyLink($option.textContent);
+
+      //set value data
+      $a.dataset.value = $option.value;
+
+      //add listener
+      $a.addEventListener(`click`, this.clickOptionListener);
+
+      //add link to list item
+      this.addElemToElem($a, $li);
+
+      results.push($li);
+    });
+
+    return results;
   }
 
   setSelectedOption($selectedOption) {

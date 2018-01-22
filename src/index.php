@@ -8,9 +8,17 @@ define('WWW_ROOT', __DIR__ . DS);
 
 $routes = array(
   'home' => array(
-    'controller' => 'Events',
+    'controller' => 'events',
     'action' => 'index'
   ),
+  'activiteiten' => array(
+    'controller' => 'events',
+    'action' => 'activiteiten'
+  ),
+  'activiteitdetail' => array(
+    'controller' => 'events',
+    'action' => 'activiteitdetail'
+  )
 );
 
 if(empty($_GET['page'])) {

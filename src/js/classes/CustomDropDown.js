@@ -6,8 +6,8 @@ export default class CustomDropDown {
     customSelectedClass: ``,
   }) {
     this.inputs = [...document.querySelectorAll(param.selector)];
-    this.customSelectClass = param.customClass;
-    this.customOpenSelectClass = param.customOpenClass;
+    this.customClass = param.customClass;
+    this.customOpenClass = param.customOpenClass;
     this.customSelectedClass = param.customSelectedClass;
 
     //listeners
@@ -21,29 +21,6 @@ export default class CustomDropDown {
     this.addElemsToElem(this.createOptions($input), $list);
 
     return $list;
-  }
-
-  createOptions($input) {
-    const results = [];
-    const options = this.getOptions($input);
-
-    options.forEach($option => {
-      const $li = document.createElement(`li`);
-      const $a = this.createEmptyLink($option.textContent);
-
-      //set value data
-      $a.dataset.value = $option.value;
-
-      //add listener
-      $a.addEventListener(`click`, this.clickOptionListener);
-
-      //add link to list item
-      this.addElemToElem($a, $li);
-
-      results.push($li);
-    });
-
-    return results;
   }
 
   createEmptyLink(textContent) {
@@ -61,11 +38,11 @@ export default class CustomDropDown {
   }
 
   toggleOpenDropDown($customDropDown) {
-    $customDropDown.classList.toggle(this.customOpenSelectClass);
+    $customDropDown.classList.toggle(this.customOpenClass);
   }
 
   closeDropDown($customDropDown) {
-    $customDropDown.classList.remove(this.customOpenSelectClass);
+    $customDropDown.classList.remove(this.customOpenClass);
   }
 
   addElemsToElem(elems, $parent) {

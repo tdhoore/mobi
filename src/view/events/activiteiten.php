@@ -2,7 +2,7 @@
   <header>
     <h2>Ontdek één van de vele activiteiten</h2>
   </header>
-  <form class="" action="index.html" method="post">
+  <form class="activiteitenFilter" action="index.php?page=activiteiten" method="post">
     <input type="hidden" name="action" value="filter"/>
     <label for="search">
       <span>Ik zoek</span>

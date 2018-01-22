@@ -82,4 +82,22 @@ class EventsController extends Controller {
     $this->set('events', $events);
   }
 
+  public function activiteiten(){
+    if($this->isAjax) {
+      if($_POST['action'] === 'getFilter') {
+        echo json_encode(array(
+          'inputName' => $_POST['inputName'],
+          'options' => array(
+          array('type' => 'name', 'name' => 'test'),
+          array('type' => 'name', 'name' => 'test2')
+        )));
+        exit();
+      }
+    }
+  }
+
+  public function activiteitdetail(){
+
+  }
+
 }
