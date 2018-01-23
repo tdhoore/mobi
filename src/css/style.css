@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'vars';
 
 html {
   font-size: 62.5%;
@@ -14,4 +15,290 @@ html {
 
 .hide {
   display: none;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+}
+
+p {
+  line-height: 2.2rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--mainFont);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 2rem auto 1rem;
+  width: 9rem;
+  height: 9rem;
+  background-image: url(http://via.placeholder.com/90x90);
+  background-size: contain;
+  align-self: center;
+
+  & span {
+    display: none;
+  }
+}
+
+h2 {
+  font-size: 10vw;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+label span {
+  display: block;
+  font-family: var(--mainFont);
+  font-weight: 700;
+}
+
+input {
+  border: none;
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+}
+
+input:focus {
+  outline: none;
+}
+
+.textInput input {
+  padding: 1rem;
+  background-color: white;
+}
+
+.textInput {
+  position: relative;
+}
+
+.textInput::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  bottom: .5rem;
+  left: 0;
+  width: 100%;
+  height: .2rem;
+  background-color: var(--accentGrey);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  background-color: var(--btnColor);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.ghostBtn {
+  background-color: transparent;
+  border: solid .2rem var(--btnColor);
+}
+
+.titleAccent {
+  display: inline-block;
+  position: relative;
+}
+
+.titleAccent::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  z-index: -1;
+  width: 100%;
+  height: 50%;
+  background-color: var(--accentColor);
+}
+
+.logo {
+  display: block;
+  width: 9rem;
+  height: 9rem;
+  background-image: url(http://via.placeholder.com/90x90);
+  background-size: contain;
+}
+
+.logo span {
+  display: none;
+}
+
+.validator {
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+  font-weight: 400;
+}
+
+.error {
+  color: red;
+}
+
+.okey {
+  color: green;
+}
+
+.copyWrite {
+  text-align: center;
+  font-family: var(--mainFont);
+  margin: 2rem 0 0;
+}
+
+.socialLinks {
+  margin-top: 2rem;
+  text-align: center;
+
+  & h4 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  & ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  & ul li a {
+    display: block;
+    height: 4.4rem;
+    width: 4.4rem;
+    background-color: var(--accentColor);
+    margin-left: 1rem;
+  }
+
+  & ul li:first-of-type a {
+    margin-left: 0;
+  }
+}
+
+nav {
+  margin-bottom: 1rem;
+
+  & ul {
+    padding: 0 1rem;
+  }
+
+  & ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-family: var(--mainFont);
+    padding: 1.4rem 1rem;
+  }
+}
+
+main {
+  padding: 0 1rem;
+}
+
+footer {
+  padding: 2rem 1rem;
+  background-color: var(--bg2Color);
+
+  & .logo {
+    margin: 0 auto;
+  }
+
+  & label {
+    text-align: center;
+  }
+
+  & label span:first-of-type {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  & label input {
+    text-align: center;
+    width: 100%;
+  }
+
+  & .validator {
+    margin-bottom: .5rem;
+  }
+}
+
+.textArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  & header {
+    font-family: var(--mainFont);
+    margin-bottom: 1rem;
+  }
+
+  & header p {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  & img:first-of-type {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+}
+
+.imageArticle {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+
+  & img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  & header {
+    margin-left: 1rem;
+  }
+}
+
+.newsLetter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.shareUs {
+
+  & ul {
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--mainFont);
+  }
+
+  & ul li a {
+    display: block;
+    text-align: center;
+  }
+
+  & ul li a::before {
+    content: '';
+    display: block;
+    background-color: red;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+  }
 }

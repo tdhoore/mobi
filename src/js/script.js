@@ -8,12 +8,18 @@ const customSelect = new CustomSelect({selector: `select`, customClass: `customD
 const init = () => {
   //init form validation
   validator.init();
-  validator.addValidationToInput(`input`, [
+  validator.addValidationToInput(`input[type="email"]`, [
     {
       name: `valueMissing`,
       messages: {
-        error: `nope`,
-        okey: `jeej`,
+        error: `Please, enter an email adress`,
+        okey: ``,
+      },
+    }, {
+      name: `typeMismatch`,
+      messages: {
+        error: `Please, enter a correct email adress`,
+        okey: `Email oke`,
       },
     },
   ]);

@@ -4,6 +4,21 @@
     <meta charset="utf-8">
     <title>Week van de mobiliteit 2018</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+       WebFontConfig = {
+         custom: {
+           families: ['aleo'],
+           urls: ['css/fonts.css']
+         }
+       };
+
+       (function(d) {
+          var wf = d.createElement('script'), s = d.scripts[0];
+          wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+          wf.async = true;
+          s.parentNode.insertBefore(wf, s);
+       })(document);
+    </script>
     <?php echo $css;?>
   </head>
   <body>
@@ -23,22 +38,27 @@
     <?php echo $content; ?>
   </main>
   <footer>
+    <a href="index.php" class="logo"><span>Week van de mobiliteit</span><img src="" alt="" width="" height=""/></a>
     <form class="newsLetter" action="index.html" method="post">
       <input type="hidden" name="action" value="newsLetter"/>
       <label for="email">
         <span>Nieuwsbrief</span>
-        <input type="email" name="email" id="email" placeholder="name@mail.com"/>
+        <div class="textInput">
+          <input type="email" name="email" id="email" placeholder="name@mail.com" required/>
+        </div>
+        <span class="validator"></span>
       </label>
+      <input type="submit" name="submit" value="schrijf in" class="btn"/>
     </form>
-    <p class="copyWrite">&copy; <?php echo date("Y"); ?> Week van de mobiliteit</p>
     <div class="socialLinks">
-        <h3>Follow us</h3>
+        <h4>Follow us</h4>
       <ul>
-        <li><a href="#"><span>Facebook</span></a></li>
-        <li><a href="#"><span>Twitter</span></a></li>
-        <li><a href="#"><span>Instagram</span></a></li>
+        <li><a href="#"><span class="hide">Facebook</span></a></li>
+        <li><a href="#"><span class="hide">Twitter</span></a></li>
+        <li><a href="#"><span class="hide">Instagram</span></a></li>
       </ul>
     </div>
+    <p class="copyWrite">&copy; <?php echo date("Y"); ?> Week van de mobiliteit</p>
   </footer>
     <?php echo $js;?>
   </body>
