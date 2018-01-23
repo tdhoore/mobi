@@ -1,17 +1,19 @@
-<article class="">
+<article class="activityInfo">
   <header>
     <h2 class="titleAccent">Autovrije zondag Sint-Niklaas: Hendrik Heymanplein</h2>
-    <p>16/09/18 - 14uur tot 18uur</p>
-    <ul class="tags">
-      <li>familie</li>
-      <li>duurzaam</li>
-      <li>eco</li>
-    </ul>
+    <div class="dateAndTags">
+      <p>16/09/18 - 14uur tot 18uur</p>
+      <ul class="tags">
+        <li>familie</li>
+        <li>duurzaam</li>
+        <li>eco</li>
+      </ul>
+    </div>
     <div class="shareLink">
       <p>Deel deze activiteit</p>
       <ul>
-        <li><a href="#"><span>Facebook</span></a></li>
-        <li><a href="#"><span>Twitter</span></a></li>
+        <li><a href="#"><span class="hide">Facebook</span></a></li>
+        <li><a href="#"><span class="hide">Twitter</span></a></li>
       </ul>
     </div>
   </header>
