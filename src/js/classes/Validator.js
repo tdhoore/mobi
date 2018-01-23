@@ -129,9 +129,13 @@ export default class Validator {
   }
 
   addValidationToInput(selector, checks = []) {
-    this.inputs.push({inputElem: this.form.querySelector(selector), checks: checks});
+    const $input = this.form.querySelector(selector);
+    console.log(this.form);
+    if ($input) {
+      this.inputs.push({inputElem: $input, checks: checks});
 
-    this.addEventListeners(this.inputs[this.inputs.length - 1].inputElem, checks);
+      this.addEventListeners(this.inputs[this.inputs.length - 1].inputElem, checks);
+    }
   }
 
   addEventListeners($elem, checks) {

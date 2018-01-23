@@ -82,4 +82,8 @@ class EventsController extends Controller {
     $this->set('events', $events);
   }
 
+  public function activiteiten() {}
+
+  public function activiteitdetail() {}
+
 }

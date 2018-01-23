@@ -1,7 +1,7 @@
 import Validator from './classes/Validator';
 import CustomSelect from './classes/CustomSelect';
 
-const $form = document.querySelector(`form`);
+const $form = document.querySelector(`.newsLetter`);
 const validator = new Validator({form: $form});
 const customSelect = new CustomSelect({selector: `select`, customClass: `customDropDown`, customOpenClass: `customDropDownOpen`});
 

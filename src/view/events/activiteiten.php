@@ -2,11 +2,7 @@
   <header>
     <h2>Ontdek één van de vele activiteiten</h2>
   </header>
-<<<<<<< HEAD
-  <form class="" action="index.html" method="post">
-=======
   <form class="activiteitenFilter" action="index.php?page=activiteiten" method="post">
->>>>>>> 2419cbcab709e17b4abe5bffe59746f99e07710a
     <input type="hidden" name="action" value="filter"/>
     <label for="search">
       <span>Ik zoek</span>
@@ -28,13 +24,13 @@
     <header>
       <h3>Title</h3>
       <p>16 september 2018</p>
+      <ul class="tags">
+        <li>Tag1</li>
+        <li>Tag2</li>
+        <li>Tag3</li>
+      </ul>
     </header>
     <img src="" alt=""/>
-    <ul class="tags">
-      <li>Tag1</li>
-      <li>Tag2</li>
-      <li>Tag3</li>
-    </ul>
   </article>
   <a href="#">Meer activiteiten</a>
 </section>

@@ -204,6 +204,10 @@ main {
   padding: 0 1rem;
 }
 
+section header:first-of-type, article header h2 {
+  margin: 2rem 0;
+}
+
 footer {
   padding: 2rem 1rem;
   background-color: var(--bg2Color);
@@ -258,11 +262,16 @@ footer {
 
 }
 
+.newsSection {
+  margin-bottom: 2rem;
+}
+
 .imageArticle {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 1rem;
 
   & img {
     width: 10rem;
@@ -271,6 +280,7 @@ footer {
 
   & header {
     margin-left: 1rem;
+    font-family: var(--mainFont);
   }
 }
 
@@ -281,6 +291,7 @@ footer {
 }
 
 .shareUs {
+  margin-bottom: 4rem;
 
   & ul {
     display: flex;
