@@ -130,7 +130,6 @@ export default class Validator {
 
   addValidationToInput(selector, checks = []) {
     const $input = this.form.querySelector(selector);
-    console.log(this.form);
     if ($input) {
       this.inputs.push({inputElem: $input, checks: checks});
 

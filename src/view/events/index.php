@@ -1,5 +1,5 @@
 <section>
-  <header class="titleAccent">
+  <header class="titleAccent sectionHeader">
     <h2>Ontdek wat er deze week geplanded is</h2>
   </header>
   <article class="textArticle">
@@ -48,58 +48,30 @@
     <img src="http://via.placeholder.com/340x140" alt=""/>
   </article>
 </section>
-<section class="newsSection">
-  <header class="titleAccent">
+<section>
+  <header class="titleAccent sectionHeader">
     <h2>Nieuws en updates</h2>
   </header>
   <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
+    <header>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
   <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
+    <header>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
-  <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
-    </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
-  </article>
-  <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
-    </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
-  </article>
-  <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
-    </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
-  </article>
-  <article class="imageArticle">
-    <header class="titleAccent">
-      <h3>Title</h3>
-      <p>16 september 2018</p>
-    </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
-  </article>
-  <a href="#" class="btn">Meer nieuws</a>
+  <a href="#" class="btn">Meer activiteiten</a>
 </section>
 
 <article class="shareUs">
-  <header class="titleAccent">
-    <h2>#WeekvdMobiliteit</h2>
+  <header>
+    <h2 class="titleAccent">#WeekvdMobiliteit</h2>
   </header>
   <ul>
     <li><a href="#"><span>Facebook</span></a></li>
