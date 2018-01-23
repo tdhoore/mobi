@@ -1,4 +1,4 @@
-<form action="index.php" method="post">
+<!--<form action="index.php" method="post">
   <fieldset>
     <legend>test</legend>
     <label for="test">
@@ -6,43 +6,50 @@
       <input type="text" name="test" placeholder="test" id="test" required/>
       <span class="validator"></span>
     </label>
+    <label for="select">
+      <span>dropDown</span>
+        <select name="test" id="select">
+          <option value="1">option1</option>
+          <option value="2">option2</option>
+          <option value="3">option3</option>
+          <option value="4">option4</option>
+          <option value="5">option5</option>
+        </select>
+    </label>
     <p class="validationComplete"></p>
     <input type="submit" name="submit" value="send"/>
   </fieldset>
-<<<<<<< Updated upstream
-</form>
-=======
 </form>-->
 
 <section>
-  <header class="titleAccent">
+  <header>
     <h2>Ontdek wat er deze week geplanded is</h2>
   </header>
-  <article class="textArticle">
-    <header class="titleAccent">
+  <article class="">
+    <header>
       <h3>Autovrije zondag</h3>
       <p>16 september 2018</p>
     </header>
-    <div>
+    <div class="">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="http://via.placeholder.com/340x140" alt=""/>
+    <img src="" alt=""/>
     <img src="" alt=""/>
   </article>
-  <article class="textArticle">
-    <header class="titleAccent">
+  <article class="">
+    <header>
       <h3>Car free day</h3>
       <p>20 september 2018</p>
     </header>
-    <div class="textArticle">
+    <div class="">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="http://via.placeholder.com/340x140" alt=""/>
+    <img src="" alt=""/>
   </article>
-  <article class="textArticle">
-    <header class="titleAccent">
+  <article class="">
+    <header>
       <h3>Car free festival</h3>
       <p>20 september 2018</p>
     </header>
@@ -50,10 +57,10 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="http://via.placeholder.com/340x140" alt=""/>
+    <img src="" alt=""/>
   </article>
-  <article class="textArticle">
-    <header class="titleAccent">
+  <article class="">
+    <header>
       <h3>Strap dag</h3>
       <p>23 september 2018</p>
     </header>
@@ -61,25 +68,25 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="http://via.placeholder.com/340x140" alt=""/>
+    <img src="" alt=""/>
   </article>
 </section>
 <section>
-  <header class="titleAccent">
+  <header>
     <h2>Nieuws en updates</h2>
   </header>
-  <article class="imageArticle">
-    <header class="titleAccent">
+  <article class="">
+    <header>
       <h3>Title</h3>
       <p>16 september 2018</p>
     </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+    <img src="" alt=""/>
   </article>
-  <a href="#" class="btn">Meer nieuws</a>
+  <a href="#">Meer nieuws</a>
 </section>
 
-<article class="shareUs">
-  <header class="titleAccent">
+<article class="">
+  <header>
     <h2>#WeekvdMobiliteit</h2>
   </header>
   <ul>
@@ -88,4 +95,3 @@
     <li><a href="#"><span>Instagram</span></a></li>
   </ul>
 </article>
->>>>>>> Stashed changes

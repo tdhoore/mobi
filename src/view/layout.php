@@ -2,20 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-<<<<<<< Updated upstream
-    <title>Autovrij</title>
-    <?php echo $css;?>
-  </head>
-  <body>
-
-    <div class="container">
-      <?php if(!empty($_SESSION['info'])): ?><div class="alert alert-success"><?php echo $_SESSION['info'];?></div><?php endif; ?>
-      <?php if(!empty($_SESSION['error'])): ?><div class="alert alert-danger"><?php echo $_SESSION['error'];?></div><?php endif; ?>
-
-      <?php echo $content; ?>
-    </div>
-
-=======
     <title>Week van de mobiliteit 2018</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
@@ -74,7 +60,6 @@
     </div>
     <p class="copyWrite">&copy; <?php echo date("Y"); ?> Week van de mobiliteit</p>
   </footer>
->>>>>>> Stashed changes
     <?php echo $js;?>
   </body>
 </html>
