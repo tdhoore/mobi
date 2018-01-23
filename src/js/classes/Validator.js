@@ -18,7 +18,7 @@ export default class Validator {
     //check if there is a form
     if (this.form) {
       //add event listener
-      this.form.addEventListener(`click`, this.listener);
+      this.form.addEventListener(`submit`, this.listener);
     } else {
       return false;
     }
@@ -72,27 +72,34 @@ export default class Validator {
 
   handleBlurInput(e, checks) {
     const $input = e.currentTarget;
-    checks.forEach(check => {
-      this.checkValidityByName($input, check);
-    });
+    this.doChecks($input, checks);
   }
 
   handleChangeInput(e, checks) {
     const $input = e.currentTarget;
+    this.doChecks($input, checks, false);
+  }
+
+  doChecks($input, checks, canDisplayError = true, canDisplayOkey = true) {
+    let isValid = true;
     checks.forEach(check => {
-      this.checkValidityByName($input, check, false);
+      if (isValid) {
+        isValid = !this.checkValidityByName($input, check);
+      }
+
+      if ((!isValid && canDisplayError) || (isValid && canDisplayOkey)) {
+        this.displayMessage($input, this.getMessageByType(check.messages, !isValid), isValid);
+      }
     });
   }
 
-  checkValidityByName($elem, check, canShowError = true) {
+  checkValidityByName($elem, check) {
     const isValid = $elem.validity[check.name];
-    if (canShowError || !isValid) {
-      this.displayMessage($elem, this.getMessageByType(check.messages, isValid), !isValid);
-    }
+    return isValid;
   }
 
   displayMessage($elem, message, type = true) {
-    const $errorElem = $elem.parentElement.querySelector(`.validator`);
+    const $errorElem = $elem.parentElement.parentElement.querySelector(`.validator`);
 
     //add error class and remove oke class
     this.changeMessageClass($errorElem, type);
@@ -109,11 +116,11 @@ export default class Validator {
 
   changeMessageClass($errorElem, type = true) {
     if (type) {
-      $errorElem.classList.remove(`okey`);
-      $errorElem.classList.add(`error`);
-    } else {
       $errorElem.classList.remove(`error`);
       $errorElem.classList.add(`okey`);
+    } else {
+      $errorElem.classList.remove(`okey`);
+      $errorElem.classList.add(`error`);
     }
   }
 

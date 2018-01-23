@@ -1,0 +1,10 @@
+:root {
+  --bg2Color: white;
+  --backgroundColor: #e1faf8;
+  --textColor: #1b1b1b;
+  --mainFont: 'aleo', 'impact', 'charcoal', sans-serif;
+  --breadFont: 'Arial', 'Helvetica', sans-serif;
+  --btnColor: #ffd166;
+  --accentColor: #46efe5;
+  --accentGrey: #b2b2b2;
+}
