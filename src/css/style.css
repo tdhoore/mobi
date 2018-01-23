@@ -7,7 +7,6 @@ html {
 }
 
 /* stylelint-disable */
-
 *, *:before, *:after {
   /* stylelint-enable */
   box-sizing: inherit;
@@ -51,6 +50,10 @@ h2 {
 }
 
 h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
   font-size: 2.5rem;
 }
 
@@ -107,8 +110,8 @@ input:focus {
 }
 
 .ghostBtn {
-  background-color: transparent;
   border: solid .2rem var(--btnColor);
+  background-color: var(--bg2Color);
 }
 
 .titleAccent {
@@ -436,4 +439,11 @@ footer {
 
 .activities {
   padding-bottom: 2rem;
+}
+
+.extraInfo {
+
+  & .textArticle {
+    padding-bottom: 0;
+  }
 }
