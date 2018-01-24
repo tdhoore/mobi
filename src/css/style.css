@@ -111,7 +111,7 @@ input:focus {
 
 .ghostBtn {
   border: solid .2rem var(--btnColor);
-  background-color: var(--bg2Color);
+  background-color: transparent;
 }
 
 .titleAccent {
@@ -533,8 +533,4 @@ footer {
   & header h3 {
     font-size: 3rem;
   }
-}
-
-@media screen and (min-width: 600px) {
-
 }

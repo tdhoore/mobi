@@ -40,5 +40,47 @@
     </header>
     <img src="http://via.placeholder.com/100x100" alt=""/>
   </article>
+  <article class="imageArticle">
+    <header>
+      <div>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
+      </div>
+      <ul class="tags">
+        <li>Tag1</li>
+        <li>Tag2</li>
+        <li>Tag3</li>
+      </ul>
+    </header>
+    <img src="http://via.placeholder.com/100x100" alt=""/>
+  </article>
+  <article class="imageArticle">
+    <header>
+      <div>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
+      </div>
+      <ul class="tags">
+        <li>Tag1</li>
+        <li>Tag2</li>
+        <li>Tag3</li>
+      </ul>
+    </header>
+    <img src="http://via.placeholder.com/100x100" alt=""/>
+  </article>
+  <article class="imageArticle">
+    <header>
+      <div>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
+      </div>
+      <ul class="tags">
+        <li>Tag1</li>
+        <li>Tag2</li>
+        <li>Tag3</li>
+      </ul>
+    </header>
+    <img src="http://via.placeholder.com/100x100" alt=""/>
+  </article>
   <a href="#" class="btn">Meer activiteiten</a>
 </section>

@@ -59,6 +59,7 @@ export default class CustomSelect extends CustomDropDown {
   }
 
   handleClickOption(e) {
+    e.preventDefault();
     this.setSelectedOption(e.currentTarget);
   }
 

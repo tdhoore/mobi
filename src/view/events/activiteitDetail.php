@@ -18,7 +18,7 @@
     </div>
   </header>
   <img src="http://via.placeholder.com/340x140" alt=""/>
-  <p>Op zondag 17 september 2017 is het feest in de stadskern. De auto’s blijven die dag aan de kant en voetgangers en fietsers nemen de straten en pleinen in. Tientallen
+  <p>Op zondag 16 september 2017 is het feest in de stadskern. De auto’s blijven die dag aan de kant en voetgangers en fietsers nemen de straten en pleinen in. Tientallen
 creatieve doeactiviteiten maken van autovrije zondag opnieuw een
 hoogdag van de zachte mobiliteit.</p>
 </article>
