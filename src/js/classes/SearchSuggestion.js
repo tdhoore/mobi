@@ -15,7 +15,6 @@ export default class SearchSuggestion extends CustomDropDown {
     //listeners
     this.inputListener = e => this.handleInput(e);
     this.ajaxResult = r => this.handleAjaxResult(r);
-    this.removeFilter = e => this.handleRemoveFilter(e);
   }
 
   init() {
@@ -45,18 +44,13 @@ export default class SearchSuggestion extends CustomDropDown {
   addOptionToSelectedTags($option) {
     const optionData = this.getOptionData($option);
 
-    this.removeDoubleType(optionData);
+    this.removeDoubleNameType(optionData);
 
     this.tagsHolder.append(this.createTag(optionData));
   }
 
   getOptionData($option) {
     return {type: $option.children[0].textContent, value: $option.children[1].textContent};
-  }
-
-  handleRemoveFilter(e) {
-    e.preventDefault();
-    e.currentTarget.parentElement.outerHTML = ``;
   }
 
   createTag(data) {
@@ -67,7 +61,6 @@ export default class SearchSuggestion extends CustomDropDown {
     $a.dataset.type = data.type;
 
     //add listener
-    $a.addEventListener(`click`, this.removeFilter);
 
     //add to list item
     $li.append($a);
@@ -75,8 +68,8 @@ export default class SearchSuggestion extends CustomDropDown {
     return $li;
   }
 
-  removeDoubleType(data) {
-    if (data.type === `name` || data.type === `stad` || data.type === `postcode`) {
+  removeDoubleNameType(data) {
+    if (data.type === `name`) {
       [...this.tagsHolder.querySelectorAll(`li a`)].forEach($link => {
         if ($link.dataset.type.toLowerCase() === data.type) {
           $link.parentElement.outerHTML = ``;
@@ -141,7 +134,7 @@ export default class SearchSuggestion extends CustomDropDown {
   getFilterUrl($input) {
     let $form = $input.parentElement.parentElement.parentElement;
 
-    if ($form.tagName.toLowerCase() !== `form`) {
+    if ($form) {
       $form = $form.parentElement;
     }
 

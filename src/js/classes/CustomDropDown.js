@@ -6,7 +6,7 @@ export default class CustomDropDown {
     customSelectedClass: ``,
   }) {
     this.inputs = [...document.querySelectorAll(param.selector)];
-    this.customSelectClass = param.customClass;
+    this.customClass = param.customClass;
     this.customOpenSelectClass = param.customOpenClass;
     this.customSelectedClass = param.customSelectedClass;
 

@@ -1,10 +1,13 @@
 import Validator from './classes/Validator';
 import CustomSelect from './classes/CustomSelect';
+import SearchSuggestion from './classes/SearchSuggestion';
 
 const $form = document.querySelector(`.newsLetter`);
 const validator = new Validator({form: $form});
 
 const customSelect = new CustomSelect({selector: `select`, customClass: `customDropDown`, customOpenClass: `customDropDownOpen`, customSelectedClass: `customSelectedItem`});
+
+const filter = new SearchSuggestion({selector: `.activiteitenFilter input`, customClass: `filterSuggestions`, customOpenClass: `filterSuggestionsOpen`, tagsHolderClass: `filterTags`});
 
 const init = () => {
   //init form validation
@@ -26,6 +29,8 @@ const init = () => {
   ]);
 
   customSelect.init();
+
+  filter.init();
 
 };
 

@@ -1,6 +1,6 @@
 <section class="activities">
-  <header>
-    <h2 class="titleAccent sectionHeader">Ontdek één van de vele activiteiten</h2>
+  <header class="sectionHeader">
+    <h2 class="titleAccent">Ontdek één van de vele activiteiten</h2>
   </header>
   <form class="activiteitenFilter" action="index.php?page=activiteiten" method="post">
     <input type="hidden" name="action" value="filter"/>
@@ -28,64 +28,6 @@
     </div>
     <input type="submit" name="submit" value="search" class="btn"/>
   </form>
-<<<<<<< Updated upstream
-  <article class="imageArticle">
-    <header>
-      <div>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
-      </div>
-      <ul class="tags">
-        <li>Tag1</li>
-        <li>Tag2</li>
-        <li>Tag3</li>
-      </ul>
-    </header>
-    <img src="http://via.placeholder.com/100x100" alt=""/>
-  </article>
-  <article class="imageArticle">
-    <header>
-      <div>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
-      </div>
-      <ul class="tags">
-        <li>Tag1</li>
-        <li>Tag2</li>
-        <li>Tag3</li>
-      </ul>
-    </header>
-    <img src="http://via.placeholder.com/100x100" alt=""/>
-  </article>
-  <article class="imageArticle">
-    <header>
-      <div>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
-      </div>
-      <ul class="tags">
-        <li>Tag1</li>
-        <li>Tag2</li>
-        <li>Tag3</li>
-      </ul>
-    </header>
-    <img src="http://via.placeholder.com/100x100" alt=""/>
-  </article>
-  <article class="imageArticle">
-    <header>
-      <div>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
-      </div>
-      <ul class="tags">
-        <li>Tag1</li>
-        <li>Tag2</li>
-        <li>Tag3</li>
-      </ul>
-    </header>
-    <img src="http://via.placeholder.com/100x100" alt=""/>
-  </article>
-=======
   <ul class="filterTags tags"></ul>
   <div class="activiteitenHolder">
     <article class="imageArticle">
@@ -145,6 +87,5 @@
       <img src="http://via.placeholder.com/100x100" alt=""/>
     </article>
   </div>
->>>>>>> Stashed changes
   <a href="#" class="btn">Meer activiteiten</a>
 </section>

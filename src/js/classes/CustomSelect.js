@@ -39,7 +39,7 @@ export default class CustomSelect extends CustomDropDown {
     const $customSelect = document.createElement(`div`);
 
     //add customDropdownClass
-    $customSelect.classList.add(this.customSelectClass);
+    $customSelect.classList.add(this.customClass);
 
     //add fake select
     this.addElemToElem(this.createFakeSelect($select), $customSelect);
