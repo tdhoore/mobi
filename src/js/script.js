@@ -6,17 +6,23 @@ const $newsLetter = document.querySelector(`.newsLetter`);
 const validator = new Validator({form: $newsLetter});
 const customSelect = new CustomSelect({selector: `select`, customClass: `customDropDown`, customOpenClass: `customDropDownOpen`});
 
-const filter = new SearchSuggestion({selector: `.activiteitenFilter input`, customClass: `filterSugestions`, customOpenClass: `filterSugestionsOpen`});
+const filter = new SearchSuggestion({selector: `.activiteitenFilter input`, customClass: `filterSuggestions`, customOpenClass: `filterSuggestionsOpen`, tagsHolderClass: `filterTags`});
 
 const init = () => {
   //init form validation
   validator.init();
-  validator.addValidationToInput(`input`, [
+  validator.addValidationToInput(`input[type="email"]`, [
     {
       name: `valueMissing`,
       messages: {
-        error: `nope`,
-        okey: `jeej`,
+        error: `Please, enter an email adress`,
+        okey: ``,
+      },
+    }, {
+      name: `typeMismatch`,
+      messages: {
+        error: `Please, enter a correct email adress`,
+        okey: `Email oke`,
       },
     },
   ]);

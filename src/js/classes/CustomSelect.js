@@ -26,6 +26,9 @@ export default class CustomSelect extends CustomDropDown {
   createFakeSelect($select) {
     const $result = this.createEmptyLink($select.querySelector(`option`).textContent);
 
+    //add class
+    $result.classList.add(`fakeSelect`);
+
     //add listener to fake select
     $result.addEventListener(`click`, this.clickFakeSelectListener);
 
@@ -56,6 +59,7 @@ export default class CustomSelect extends CustomDropDown {
   }
 
   handleClickOption(e) {
+    e.preventDefault();
     this.setSelectedOption(e.currentTarget);
   }
 

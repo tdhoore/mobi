@@ -12,13 +12,13 @@ $routes = array(
     'action' => 'index'
   ),
   'activiteiten' => array(
-    'controller' => 'events',
+    'controller' => 'Events',
     'action' => 'activiteiten'
   ),
   'activiteitdetail' => array(
-    'controller' => 'events',
+    'controller' => 'Events',
     'action' => 'activiteitdetail'
-  )
+  ),
 );
 
 if(empty($_GET['page'])) {

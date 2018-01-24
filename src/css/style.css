@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'vars';
 
 html {
   font-size: 62.5%;
@@ -6,7 +7,6 @@ html {
 }
 
 /* stylelint-disable */
-
 *, *:before, *:after {
   /* stylelint-enable */
   box-sizing: inherit;
@@ -14,4 +14,545 @@ html {
 
 .hide {
   display: none;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+}
+
+p {
+  line-height: 2.2rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--mainFont);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 2rem auto 1rem;
+  width: 9rem;
+  height: 9rem;
+  background-image: url(http://via.placeholder.com/90x90);
+  background-size: contain;
+  align-self: center;
+
+  & span {
+    display: none;
+  }
+}
+
+h2 {
+  font-size: 10vw;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+label span {
+  display: block;
+  font-family: var(--mainFont);
+  font-weight: 700;
+}
+
+input {
+  border: none;
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+}
+
+input:focus {
+  outline: none;
+}
+
+.textInput input {
+  padding: 1rem;
+  background-color: white;
+  width: 100%;
+}
+
+.textInput,.customDropDown a:first-of-type {
+  position: relative;
+}
+
+.textInput::before, .fakeSelect::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  bottom: .5rem;
+  left: 0;
+  width: 100%;
+  height: .2rem;
+  background-color: var(--accentGrey);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  background-color: var(--btnColor);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.ghostBtn {
+  border: solid .2rem var(--btnColor);
+  background-color: transparent;
+}
+
+.titleAccent {
+  display: inline-block;
+  position: relative;
+}
+
+.titleAccent::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  z-index: -1;
+  width: 100%;
+  height: 50%;
+  background-color: var(--accentColor);
+}
+
+.logo {
+  display: block;
+  width: 9rem;
+  height: 9rem;
+  background-image: url(http://via.placeholder.com/90x90);
+  background-size: contain;
+}
+
+.logo span {
+  display: none;
+}
+
+.validator {
+  font-size: 1.6rem;
+  font-family: var(--breadFont);
+  font-weight: 400;
+}
+
+.error {
+  color: red;
+}
+
+.okey {
+  color: green;
+}
+
+.copyWrite {
+  text-align: center;
+  font-family: var(--mainFont);
+  margin: 2rem 0 0;
+}
+
+.socialLinks {
+  margin-top: 2rem;
+  text-align: center;
+
+  & h4 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  & ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  & ul li a {
+    display: block;
+    height: 4.4rem;
+    width: 4.4rem;
+    background-color: var(--accentColor);
+    margin-left: 1rem;
+  }
+
+  & ul li:first-of-type a {
+    margin-left: 0;
+  }
+}
+
+nav {
+  margin-bottom: 1rem;
+
+  & ul {
+    padding: 0 1rem;
+  }
+
+  & ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-family: var(--mainFont);
+    padding: 1.4rem 1rem;
+  }
+}
+
+main {
+  padding: 0 1rem;
+}
+
+.sectionHeader {
+  margin: 4rem 0 2rem;
+}
+
+footer {
+  padding: 2rem 1rem;
+  background-color: var(--bg2Color);
+
+  & .logo {
+    margin: 0 auto;
+  }
+
+  & label {
+    text-align: center;
+  }
+
+  & label span:first-of-type {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  & label input {
+    text-align: center;
+    width: 100%;
+  }
+
+  & .validator {
+    margin-bottom: .5rem;
+  }
+}
+
+.textArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  & header {
+    font-family: var(--mainFont);
+    margin-bottom: 1rem;
+  }
+
+  & header p {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  & img:first-of-type {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+}
+
+.textArticle:last-of-type {
+  padding-bottom: 0;
+}
+
+.imageArticle {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  & img {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 1rem;
+  }
+
+  & header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: var(--mainFont);
+  }
+
+  & header div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  & header p {
+    font-size: 1.4rem;
+  }
+
+  & header p::before {
+    background-color: var(--bg2Color);
+  }
+
+  & .tags {
+    margin-top: 1rem;
+  }
+}
+
+.tags {
+  display: flex;
+
+  & li {
+    padding: .4rem;
+    margin-right: .5rem;
+    background-color: var(--accentColor);
+  }
+
+  & li:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.newsLetter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.shareUs {
+  margin: 4rem  0;
+
+  & header {
+    margin-bottom: 2rem;
+  }
+
+  & ul {
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--mainFont);
+  }
+
+  & ul li a {
+    display: block;
+    text-align: center;
+  }
+
+  & ul li a::before {
+    content: '';
+    display: block;
+    background-color: red;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.activiteitenFilter {
+  background-color: var(--bg2Color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  & label {
+    display: flex;
+    align-items: center;
+  }
+
+  & label span:first-of-type {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  & label .textInput {
+    flex: 2;
+  }
+
+  & .locAndDate {
+    display: flex;
+    margin: 1rem 0;
+  }
+
+  & .locAndDate label:first-of-type {
+    margin-right: 1rem;
+  }
+}
+
+.customDropDown {
+  position: relative;
+
+  & .fakeSelect {
+    display: block;
+    padding: 1rem 1.5rem 1rem 1rem;
+  }
+
+  & .fakeSelect::before {
+    bottom: .4rem;
+  }
+
+  & .fakeSelect::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - .4rem);
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: .5rem solid transparent;
+    border-right: .5rem solid transparent;
+    border-top: .5rem solid var(--textColor);
+  }
+
+  & ul {
+    position: absolute;
+    z-index: 200;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg2Color);
+    max-height: 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+  }
+
+  & .customDropDownOpen {
+    max-height: 100vh;
+  }
+
+  & ul li a {
+    display: block;
+    padding: 1.4rem 1rem;
+  }
+
+  & ul li a:hover {
+    background-color: var(--btnColor);
+  }
+
+  & .customSelectedItem {
+    background-color: var(--accentColor);
+  }
+}
+
+.activities {
+  padding-bottom: 2rem;
+}
+
+.extraInfo {
+
+  & .textArticle {
+    padding-bottom: 0;
+  }
+}
+
+.activityInfo {
+  margin-bottom: 2rem;
+
+  & header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 2rem;
+  }
+
+  & header h2 {
+    grid-column: 1 / -1;
+  }
+
+  & header p {
+    margin: 1rem 0 .5rem;
+    font-family: var(--mainFont);
+  }
+
+  & .shareLink {
+    font-size: 1.4rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  & .shareLink ul {
+    display: flex;
+  }
+
+  & .shareLink ul li a {
+    display: block;
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: var(--accentColor);
+    margin-right: 1rem;
+  }
+
+  & .shareLink ul li:last-of-type a {
+    margin-right: 0;
+  }
+
+  & img {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+.address {
+  padding-right: 30%;
+  margin-bottom: 2rem;
+
+  & header h3 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  & address {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  & address span {
+    margin-bottom: .4rem;
+  }
+
+  & .locName {
+    font-size: 2rem;
+    font-family: var(--mainFont);
+    margin-bottom: .7rem;
+  }
+}
+
+.praktischeInfo {
+  margin-bottom: 2rem;
+
+  & header h3 {
+    font-size: 3rem;
+  }
+}
+
+.filterSuggestions {
+  position: absolute;
+  z-index: 20;
+  background-color: var(--bg2Color);
+  width: 100%;
+
+  & li a {
+    display: block;
+    padding: .5rem;
+  }
+
+  & li a span:first-of-type {
+    font-size: 1.4rem;
+  }
+
+  & li a span:last-of-type {
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: var(--breadFont);
+  }
 }

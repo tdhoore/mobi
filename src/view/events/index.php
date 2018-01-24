@@ -1,93 +1,77 @@
-<!--<form action="index.php" method="post">
-  <fieldset>
-    <legend>test</legend>
-    <label for="test">
-      <span>naam</span>
-      <input type="text" name="test" placeholder="test" id="test" required/>
-      <span class="validator"></span>
-    </label>
-    <label for="select">
-      <span>dropDown</span>
-        <select name="test" id="select">
-          <option value="1">option1</option>
-          <option value="2">option2</option>
-          <option value="3">option3</option>
-          <option value="4">option4</option>
-          <option value="5">option5</option>
-        </select>
-    </label>
-    <p class="validationComplete"></p>
-    <input type="submit" name="submit" value="send"/>
-  </fieldset>
-</form>-->
-
 <section>
-  <header>
+  <header class="titleAccent sectionHeader">
     <h2>Ontdek wat er deze week geplanded is</h2>
   </header>
-  <article class="">
-    <header>
+  <article class="textArticle">
+    <header class="titleAccent">
       <h3>Autovrije zondag</h3>
       <p>16 september 2018</p>
     </header>
-    <div class="">
+    <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="" alt=""/>
+    <img src="http://via.placeholder.com/340x140" alt=""/>
     <img src="" alt=""/>
   </article>
-  <article class="">
-    <header>
+  <article class="textArticle">
+    <header class="titleAccent">
       <h3>Car free day</h3>
       <p>20 september 2018</p>
     </header>
-    <div class="">
+    <div class="textArticle">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="" alt=""/>
+    <img src="http://via.placeholder.com/340x140" alt=""/>
   </article>
-  <article class="">
-    <header>
+  <article class="textArticle">
+    <header class="titleAccent">
       <h3>Car free festival</h3>
       <p>20 september 2018</p>
     </header>
-    <div class="">
+    <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="" alt=""/>
+    <img src="http://via.placeholder.com/340x140" alt=""/>
   </article>
-  <article class="">
-    <header>
+  <article class="textArticle">
+    <header class="titleAccent">
       <h3>Strap dag</h3>
       <p>23 september 2018</p>
     </header>
-    <div class="">
+    <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo ultricies nisl id accumsan. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet feugiat nulla.</p>
       <a href="#" class="btn">Ontdek</a>
     </div>
-    <img src="" alt=""/>
+    <img src="http://via.placeholder.com/340x140" alt=""/>
   </article>
 </section>
 <section>
-  <header>
+  <header class="titleAccent sectionHeader">
     <h2>Nieuws en updates</h2>
   </header>
-  <article class="">
+  <article class="imageArticle">
     <header>
-      <h3>Title</h3>
-      <p>16 september 2018</p>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
     </header>
-    <img src="" alt=""/>
+    <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
-  <a href="#">Meer nieuws</a>
+  <article class="imageArticle">
+    <header>
+      <h3 class="titleAccent">Title</h3>
+      <p class="titleAccent">16 september 2018</p>
+    </header>
+    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+  </article>
+  <a href="#" class="btn">Meer activiteiten</a>
 </section>
 
-<article class="">
+<article class="shareUs">
   <header>
-    <h2>#WeekvdMobiliteit</h2>
+    <h2 class="titleAccent">#WeekvdMobiliteit</h2>
   </header>
   <ul>
     <li><a href="#"><span>Facebook</span></a></li>

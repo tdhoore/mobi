@@ -89,7 +89,7 @@ class EventsController extends Controller {
           'inputName' => $_POST['inputName'],
           'options' => array(
           array('type' => 'name', 'name' => 'test'),
-          array('type' => 'name', 'name' => 'test2')
+          array('type' => 'tag', 'name' => 'test2')
         )));
         exit();
       }

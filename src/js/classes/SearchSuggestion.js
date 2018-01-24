@@ -6,8 +6,11 @@ export default class SearchSuggestion extends CustomDropDown {
     customClass: ``,
     customOpenClass: ``,
     customSelectedClass: ``,
+    tagsHolderClass: ``,
   }) {
     super({selector: param.selector, customClass: param.customClass, customOpenClass: param.customOpenClass, customSelectedClass: param.customSelectedClass});
+
+    this.tagsHolder = document.querySelector(`.${param.tagsHolderClass}`);
 
     //listeners
     this.inputListener = e => this.handleInput(e);
@@ -26,7 +29,54 @@ export default class SearchSuggestion extends CustomDropDown {
     this.getSuggestions($input);
   }
 
-  handleClickOption() {}
+  handleClickOption(e) {
+    e.preventDefault();
+    const $option = e.currentTarget;
+
+    //add options to tags
+    this.addOptionToSelectedTags($option);
+
+    //preforme reset
+    this.clearValue($option.parentElement.parentElement.parentElement.querySelector(`input`));
+    this.wipeElement($option.parentElement.parentElement);
+  }
+
+  addOptionToSelectedTags($option) {
+    const optionData = this.getOptionData($option);
+
+    this.removeDoubleNameType(optionData);
+
+    this.tagsHolder.append(this.createTag(optionData));
+  }
+
+  getOptionData($option) {
+    return {type: $option.children[0].textContent, value: $option.children[1].textContent};
+  }
+
+  createTag(data) {
+    const $li = document.createElement(`li`);
+    const $a = this.createEmptyLink(data.value);
+
+    //add type
+    $a.dataset.type = data.type;
+
+    //add listener
+
+    //add to list item
+    $li.append($a);
+
+    return $li;
+  }
+
+  removeDoubleNameType(data) {
+    if (data.type === `name`) {
+      [...this.tagsHolder.querySelectorAll(`li a`)].forEach($link => {
+        if ($link.dataset.type.toLowerCase() === data.type) {
+          $link.parentElement.outerHTML = ``;
+        }
+      });
+    }
+  }
 
   getSuggestions($input) {
     const formData = new FormData();
@@ -66,7 +116,7 @@ export default class SearchSuggestion extends CustomDropDown {
       $a.dataset.inputName = inputName;
 
       //set content
-      $a.innerHTML = `<span>${option.type}</span>`;
+      $a.innerHTML = `<span class="titleAccent">${option.type}</span>`;
       $a.innerHTML += `<span>${option.name}</span>`;
 
       //add listener
@@ -82,7 +132,7 @@ export default class SearchSuggestion extends CustomDropDown {
   }
 
   getFilterUrl($input) {
-    return $input.parentElement.parentElement.getAttribute(`action`);
+    return $input.parentElement.parentElement.parentElement.getAttribute(`action`);
   }
 
   getCustomSuggestion($input) {
@@ -97,6 +147,10 @@ export default class SearchSuggestion extends CustomDropDown {
 
   wipeElement($elem) {
     $elem.innerHTML = ``;
+  }
+
+  clearValue($elem) {
+    $elem.value = ``;
   }
 
   createCustomDropDown($input) {
