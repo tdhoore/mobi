@@ -22,7 +22,7 @@
     <?php echo $css;?>
   </head>
   <body>
-  <header>
+  <header class="mainHeader">
     <h1><span>Week van de mobiliteit</span></h1>
     <nav>
       <ul>
