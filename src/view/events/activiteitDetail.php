@@ -2,7 +2,7 @@
   <header>
     <h2 class="titleAccent">Autovrije zondag Sint-Niklaas: Hendrik Heymanplein</h2>
     <div class="dateAndTags">
-      <p>16/09/18 - 14uur tot 18uur</p>
+      <p>16/09/18 - 14 tot 18uur</p>
       <ul class="tags">
         <li>familie</li>
         <li>duurzaam</li>
@@ -22,18 +22,16 @@
 creatieve doeactiviteiten maken van autovrije zondag opnieuw een
 hoogdag van de zachte mobiliteit.</p>
 </article>
-<article class="">
+<article class="address">
   <header class="titleAccent">
     <h3>Waar is dit?</h3>
   </header>
-  <address class="">
-    Hendrik Heymanplein
-  <br/>
-  Hendrik Heymanplein
-  <br/>
-  Sint-Niklaas 9100
+  <address>
+    <span class="locName">Hendrik Heymanplein</span>
+    <span>Hendrik Heymanplein</span>
+    <span>Sint-Niklaas 9100</span>
   </address>
-  <a href="#">Toon op google maps</a>
+  <a href="#" class="btn ghostBtn">Toon op google maps</a>
 </article>
 
 <section class="extraInfo">
@@ -77,9 +75,9 @@ hoogdag van de zachte mobiliteit.</p>
     <p>Van die typische bommakasten, waar de kringloopcentra van uitpuilen omdat niemand ze nog wil, kent u die? Wel deze werden omgeturnd tot een zeepkist. Benieuwd? Neem dan zeker deel aan de race of aanschouw dit spektakel als toeschouwer.</p>
   </article>
 </section>
-<article class="textArticle">
+<article class="textArticle praktischeInfo">
   <header class="titleAccent">
-    <h3>Practische informatie</h3>
+    <h3>Praktische informatie</h3>
   </header>
   <p> Op zondag 17 september is er van 12 tot 19 uur geen verkeer mogelijk in een groot deel van de stadskern. De afbakening van de autovrije zone vindt u op het plan. Activiteiten vinden plaats tussen 14 en 18 uur. Ter gelegenheid van autovrije zondag biedt het stadsbestuur u gratis busvervoer aan. U hoeft hiervoor niets te ondernemen,
 gewoon op de bus stappen.</p>
