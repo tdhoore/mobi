@@ -15,6 +15,10 @@ export default class SearchSuggestion extends CustomDropDown {
     //listeners
     this.inputListener = e => this.handleInput(e);
     this.ajaxResult = r => this.handleAjaxResult(r);
+    this.removeTagHandler = e => this.handleRemoveTag(e);
+
+    //tags list
+    this.selectedTags = [];
   }
 
   init() {
@@ -47,9 +51,14 @@ export default class SearchSuggestion extends CustomDropDown {
   addOptionToSelectedTags($option) {
     const optionData = this.getOptionData($option);
 
-    this.removeDoubleNameType(optionData);
+    if (this.checkIfTagIsSelected(optionData)) {
+      this.selectedTags.push(optionData);
+      this.tagsHolder.append(this.createTag(optionData));
+    }
+  }
 
-    this.tagsHolder.append(this.createTag(optionData));
+  checkIfTagIsSelected(optionData) {
+    return this.selectedTags.filter(tag => tag.type === optionData.type).length === 0;
   }
 
   getOptionData($option) {
@@ -64,6 +73,7 @@ export default class SearchSuggestion extends CustomDropDown {
     $a.dataset.type = data.type;
 
     //add listener
+    $a.addEventListener(`click`, this.removeTagHandler);
 
     //add to list item
     $li.append($a);
@@ -71,14 +81,24 @@ export default class SearchSuggestion extends CustomDropDown {
     return $li;
   }
 
-  removeDoubleNameType(data) {
-    if (data.type === `name`) {
-      [...this.tagsHolder.querySelectorAll(`li a`)].forEach($link => {
-        if ($link.dataset.type.toLowerCase() === data.type) {
-          $link.parentElement.outerHTML = ``;
-        }
-      });
-    }
+  handleRemoveTag(e) {
+    e.preventDefault();
+    const $tagElem = e.currentTarget;
+    const tagData = this.getDataFromTagElem($tagElem);
+    this.removeTag(tagData, $tagElem);
+  }
+
+  getDataFromTagElem(tagElem) {
+    return {type: tagElem.dataset.type, value: tagElem.textContent};
+  }
+
+  removeTag(tagObj, $elem) {
+    this.selectedTags.forEach((tag, index) => {
+      if (tag.type === tagObj.type && tag.value === tagObj.value) {
+        this.selectedTags.splice(index, 1);
+        $elem.parentElement.outerHTML = ``;
+      }
+    });
   }
 
   getSuggestions($input) {

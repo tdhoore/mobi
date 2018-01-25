@@ -1,5 +1,5 @@
 <article class="activityInfo">
-  <header>
+  <header class="activityInfoHeader">
     <h2 class="titleAccent">Autovrije zondag Sint-Niklaas: Hendrik Heymanplein</h2>
     <div class="dateAndTags">
       <p>16/09/18 - 14 tot 18uur</p>
