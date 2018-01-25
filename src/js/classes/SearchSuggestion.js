@@ -22,6 +22,9 @@ export default class SearchSuggestion extends CustomDropDown {
     this.inputs.forEach($input => {
       $input.addEventListener(`input`, this.inputListener);
     });
+
+    // add listener to window
+    window.addEventListener(`click`, this.clickWindow);
   }
 
   handleInput(e) {
@@ -134,7 +137,7 @@ export default class SearchSuggestion extends CustomDropDown {
   getFilterUrl($input) {
     let $form = $input.parentElement.parentElement.parentElement;
 
-    if ($form) {
+    if ($form.tagName.toLowerCase() !== `form`) {
       $form = $form.parentElement;
     }
 
@@ -167,6 +170,15 @@ export default class SearchSuggestion extends CustomDropDown {
 
     //add customselect to the select parent
     this.addElemToElem($customSuggestion, $input.parentElement);
+  }
+
+  handleClickWindow() {
+    this.inputs.forEach($input => {
+      const $customDropDown = $input.parentElement.querySelector(`ul`);
+      if ($customDropDown) {
+        this.wipeElement($customDropDown);
+      }
+    });
   }
 
 }

@@ -21,19 +21,18 @@
   <p>Op zondag 16 september 2017 is het feest in de stadskern. De auto’s blijven die dag aan de kant en voetgangers en fietsers nemen de straten en pleinen in. Tientallen
 creatieve doeactiviteiten maken van autovrije zondag opnieuw een
 hoogdag van de zachte mobiliteit.</p>
+  <article class="address">
+    <header class="titleAccent">
+      <h3>Waar is dit?</h3>
+    </header>
+    <address>
+      <span class="locName">Hendrik Heymanplein</span>
+      <span>Hendrik Heymanplein</span>
+      <span>Sint-Niklaas 9100</span>
+    </address>
+    <a href="#" class="btn ghostBtn">Toon op google maps</a>
+  </article>
 </article>
-<article class="address">
-  <header class="titleAccent">
-    <h3>Waar is dit?</h3>
-  </header>
-  <address>
-    <span class="locName">Hendrik Heymanplein</span>
-    <span>Hendrik Heymanplein</span>
-    <span>Sint-Niklaas 9100</span>
-  </address>
-  <a href="#" class="btn ghostBtn">Toon op google maps</a>
-</article>
-
 <section class="extraInfo">
   <header class="hide">
     <h3>Extra information</h3>
@@ -50,6 +49,7 @@ hoogdag van de zachte mobiliteit.</p>
         <h4>Optredens</h4>
       </header>
       <p>Geniet even een rustpauze van de vele optredens terwijl u geniet van een drankje en een versnapering.</p>
+      <img src="http://via.placeholder.com/340x140" alt=""/>
     </article>
     <article class="textArticle">
       <header class="titleAccent">
@@ -65,18 +65,20 @@ hoogdag van de zachte mobiliteit.</p>
     <p>Voor de allerkleinsten worden er ponyritjes voorzien of wat dacht u van een fietsdraaimolen? Met het treinspringkasteel gaat het vooruit. De leerlingen van de OLV-Presentatie toveren een mooie grime op uw gezicht en knutselen graag iets leuks met u.</p>
     <img src="http://via.placeholder.com/270x200" alt=""/>
   </article>
-  <article class="textArticle">
-    <header class="titleAccent">
-      <h4>Opening bibliotheek</h4>
-    </header>
-    <p>In het kader van de feestelijke heropening na de renovatiewerken, is de Bib op Autovrije zondag uitzonderlijk open tot 17 uur. Een weekend vol activiteiten voor jong en oud met onder ander Begijn Le Bleu, workshops papier scheppen, buttons maken, t-shirts printen, rondleidingen, voorleesmomenten en nog veel meer.</p>
-  </article>
-  <article class="textArticle">
-    <header class="titleAccent">
-      <h4>Zeepkistenrace</h4>
-    </header>
-    <p>Van die typische bommakasten, waar de kringloopcentra van uitpuilen omdat niemand ze nog wil, kent u die? Wel deze werden omgeturnd tot een zeepkist. Benieuwd? Neem dan zeker deel aan de race of aanschouw dit spektakel als toeschouwer.</p>
-  </article>
+  <div class="halfScreen">
+    <article class="textArticle">
+      <header class="titleAccent">
+        <h4>Opening bibliotheek</h4>
+      </header>
+      <p>In het kader van de feestelijke heropening na de renovatiewerken, is de Bib op Autovrije zondag uitzonderlijk open tot 17 uur. Een weekend vol activiteiten voor jong en oud met onder ander Begijn Le Bleu, workshops papier scheppen, buttons maken, t-shirts printen, rondleidingen, voorleesmomenten en nog veel meer.</p>
+    </article>
+    <article class="textArticle">
+      <header class="titleAccent">
+        <h4>Zeepkistenrace</h4>
+      </header>
+      <p>Van die typische bommakasten, waar de kringloopcentra van uitpuilen omdat niemand ze nog wil, kent u die? Wel deze werden omgeturnd tot een zeepkist. Benieuwd? Neem dan zeker deel aan de race of aanschouw dit spektakel als toeschouwer.</p>
+    </article>
+  </div>
 </section>
 <article class="textArticle praktischeInfo">
   <header class="titleAccent">

@@ -7,14 +7,14 @@
     <label for="search">
       <span>Ik zoek</span>
       <span class="textInput">
-        <input type="text" name="search" id="search" placeholder="Naam, tag, …"/>
+        <input type="text" name="search" id="search" placeholder="Naam, tag, …" class="suggestion"/>
       </span>
     </label>
     <div class="locAndDate">
       <label for="location">
         <span>in</span>
         <span class="textInput">
-        <input type="text" name="location" id="location" placeholder="Stad of postcode"/>
+        <input type="text" name="location" id="location" placeholder="Stad of postcode" class="suggestion"/>
       </span>
       </label>
       <label for="date">

@@ -54,6 +54,9 @@ export default class CustomSelect extends CustomDropDown {
   handleClickFakeSelect(e) {
     e.preventDefault();
 
+    // add listener to window
+    //window.addEventListener(`click`, this.clickWindow);
+
     //open or close dropdown
     this.toggleOpenDropDown(e.currentTarget.parentElement.querySelector(`ul`));
   }
@@ -91,5 +94,14 @@ export default class CustomSelect extends CustomDropDown {
     } else {
       $option.removeAttribute(`selected`);
     }
+  }
+
+  handleClickWindow() {
+    this.inputs.forEach($input => {
+      const $customDropDown = $input.parentElement.querySelector(`ul`);
+      if ($customDropDown) {
+        $customDropDown.classList.remove(this.customOpenClass);
+      }
+    });
   }
 }

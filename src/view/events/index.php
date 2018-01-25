@@ -68,9 +68,29 @@
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
+  <article class="imageArticle">
+    <header class="titleAccent">
+      <h3>Title</h3>
+      <p>16 september 2018</p>
+    </header>
+    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+  </article>
+  <article class="imageArticle">
+    <header class="titleAccent">
+      <h3>Title</h3>
+      <p>16 september 2018</p>
+    </header>
+    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+  </article>
+  <article class="imageArticle">
+    <header class="titleAccent">
+      <h3>Title</h3>
+      <p>16 september 2018</p>
+    </header>
+    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+  </article>
   <a href="#" class="btn">Meer activiteiten</a>
 </section>
-
 <article class="shareUs">
   <header>
     <h2 class="titleAccent">#WeekvdMobiliteit</h2>

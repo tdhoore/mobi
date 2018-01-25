@@ -7,11 +7,12 @@ export default class CustomDropDown {
   }) {
     this.inputs = [...document.querySelectorAll(param.selector)];
     this.customClass = param.customClass;
-    this.customOpenSelectClass = param.customOpenClass;
+    this.customOpenClass = param.customOpenClass;
     this.customSelectedClass = param.customSelectedClass;
 
     //listeners
     this.clickOptionListener = e => this.handleClickOption(e);
+    this.clickWindow = e => this.handleClickWindow(e);
   }
 
   createOptionsList($input) {
@@ -61,11 +62,11 @@ export default class CustomDropDown {
   }
 
   toggleOpenDropDown($customDropDown) {
-    $customDropDown.classList.toggle(this.customOpenSelectClass);
+    $customDropDown.classList.toggle(this.customOpenClass);
   }
 
   closeDropDown($customDropDown) {
-    $customDropDown.classList.remove(this.customOpenSelectClass);
+    $customDropDown.classList.remove(this.customOpenClass);
   }
 
   addElemsToElem(elems, $parent) {
