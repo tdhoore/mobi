@@ -55,16 +55,16 @@
     <h2 class="titleAccent">Nieuws en updates</h2>
   </header>
   <article class="imageArticle">
-    <header>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
+    <header class="titleAccent">
+      <h3>Title</h3>
+      <p>16 september 2018</p>
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
   <article class="imageArticle">
-    <header>
-      <h3 class="titleAccent">Title</h3>
-      <p class="titleAccent">16 september 2018</p>
+    <header class="titleAccent">
+      <h3>Title</h3>
+      <p>16 september 2018</p>
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>

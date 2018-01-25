@@ -118,6 +118,7 @@ input:focus {
 .titleAccent {
   display: inline-block;
   position: relative;
+  z-index: 2;
 }
 
 .titleAccent::before {
@@ -525,7 +526,7 @@ footer {
 
 .address {
   padding-right: 30%;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 
   & header h3 {
     font-size: 3rem;
@@ -621,6 +622,52 @@ footer {
     margin: 10rem 2rem 0;
   }
 
+  footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(3, auto);
+    padding: 2rem;
+
+    & .logo {
+      margin: 0;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    & label, & label input {
+      text-align: left;
+    }
+
+    & .socialLinks {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+
+    & .copyWrite {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
+  }
+
+  .newsLetter {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    & label {
+      width: 24rem;
+    }
+
+    & label span:first-of-type {
+      font-size: 1.4rem;
+      margin: 0 0 0 1rem;
+    }
+
+    & .btn {
+      margin-left: 1rem;
+    }
+  }
+
   .btn {
     width: auto;
   }
@@ -703,22 +750,7 @@ footer {
 
     & header {
       position: relative;
-      margin-top: 1rem;
-    }
-
-    & header p {
-      position: absolute;
-      z-index: 20;
-      top: -2.3rem;
-      left: 0;
-      font-size: 1.4rem;
-      padding: .2rem;
-    }
-
-    & header p::before {
-      top: 0;
-      left: 0;
-      height: 50%;
+      margin-top: .5rem;
     }
 
     & img {
@@ -777,5 +809,67 @@ footer {
       height: 3rem;
       color: transparent;
     }
+  }
+
+  .activityInfo {
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 2rem 4rem;
+    margin-bottom: 4rem;
+
+    & header {
+      grid-column: 1 / -1;
+    }
+
+    & header h2 {
+      justify-self: start;
+    }
+
+    & img {
+      order: 5;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-column-gap: 4rem;
+    padding: 0;
+
+    & header {
+      justify-self: start;
+      grid-column: -2 / -1;
+      grid-row: 1 / 2;
+    }
+
+    & address {
+      grid-column: -2 / -1;
+      grid-row: 2 / 3;
+    }
+
+    & a {
+      justify-self: start;
+      grid-column: -2 / -1;
+      grid-row: 3 / 4;
+    }
+  }
+
+  .extraInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 4rem;
+    margin-bottom: 6rem;
+  }
+
+  .websiteLink {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto 0;
   }
 }

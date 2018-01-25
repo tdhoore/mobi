@@ -42,7 +42,7 @@
     <form class="newsLetter" action="index.html" method="post">
       <input type="hidden" name="action" value="newsLetter"/>
       <label for="email">
-        <span>Nieuwsbrief</span>
+        <span class="titleAccent">Nieuwsbrief</span>
         <div class="textInput">
           <input type="email" name="email" id="email" placeholder="name@mail.com" required/>
         </div>
