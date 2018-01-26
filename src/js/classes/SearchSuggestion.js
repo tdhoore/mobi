@@ -106,6 +106,7 @@ export default class SearchSuggestion extends CustomDropDown {
 
     formData.append(`inputName`, $input.name);
     formData.append(`action`, `getFilter`);
+    formData.append(`usedFilters`, this.selectedTags);
     formData.append($input.name, $input.value);
 
     fetch(this.getFilterUrl($input), {
@@ -117,6 +118,7 @@ export default class SearchSuggestion extends CustomDropDown {
   }
 
   handleAjaxResult(results) {
+    console.log(results);
     const $input = document.querySelector(`input[name="${results.inputName}"]`);
     const $customSuggestion = this.getCustomSuggestion($input);
 
@@ -131,7 +133,8 @@ export default class SearchSuggestion extends CustomDropDown {
   createOptions(inputName, options) {
     const results = [];
 
-    options.forEach(option => {
+    Object.keys(options).forEach(key => {
+      const option = options[key];
       const $li = document.createElement(`li`);
       const $a = this.createEmptyLink(``);
 
@@ -140,7 +143,7 @@ export default class SearchSuggestion extends CustomDropDown {
 
       //set content
       $a.innerHTML = `<span class="titleAccent">${option.type}</span>`;
-      $a.innerHTML += `<span>${option.name}</span>`;
+      $a.innerHTML += `<span>${option.value}</span>`;
 
       //add listener
       $a.addEventListener(`click`, this.clickOptionListener);

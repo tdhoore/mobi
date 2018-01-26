@@ -9,7 +9,7 @@ class EventDAO extends DAO {
       LEFT OUTER JOIN `ma3_auto_events_organisers` ON ma3_auto_events.id = ma3_auto_events_organisers.event_id
       LEFT OUTER JOIN `ma3_auto_organisers` ON ma3_auto_organisers.id = ma3_auto_events_organisers.organiser_id
       LEFT OUTER JOIN `ma3_auto_events_tags` ON ma3_auto_events.id = ma3_auto_events_tags.event_id
-      LEFT OUTER JOIN `ma3_auto_tags` ON ma3_auto_tags.id = ma3_auto_events_tags.tag_id
+      LEFT OUTER JOIN `ma3_auto_tags` ON ma3_auto_tags.id = ma3_auto_events_tags.tag_id WHERE 1
     ";
     $conditionSqls = array();
     $conditionParams = array();
@@ -46,7 +46,7 @@ class EventDAO extends DAO {
       $i++;
     }
     if(!empty($conditionSqls)) {
-      $sql .= 'AND ' . implode(' AND ', $conditionSqls);
+        $sql .= 'AND ' . implode(' AND ', $conditionSqls);
     }
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute($conditionParams);

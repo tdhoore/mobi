@@ -85,21 +85,120 @@ class EventsController extends Controller {
   public function activiteiten() {
     if($this->isAjax) {
       if($_POST['action'] === 'getFilter') {
-        echo json_encode(array(
-          'inputName' => $_POST['inputName'],
-          'options' => array(
-          array('type' => 'name', 'name' => 'test'),
-          array('type' => 'tag', 'name' => 'test2')
-        )));
-        exit();
+        $this->getSuggestionsByFilter($_POST);
       } else if ($_POST['action'] === 'getActivities') {
         $this->getActivitiesByFilter($_POST);
-        exit();
       }
+
+      exit();
     }
   }
 
-  public function activiteitdetail() {}
+  public function activiteitdetail() {
+
+  }
+
+  private function getSuggestionsByFilter($data){
+    $inputName = $data['inputName'];
+
+    $conditions = array();
+    $result = array();
+
+    $type = '';
+
+    //go through the used filters and look what is already used
+    $conditions = $this->getConditions($data['usedFilters']);
+
+    //search for things by name, city, postcode
+    if(isset($data['search'])) {
+      $type = 'title';
+
+      $conditions[] = array(
+        'field' => 'title',
+        'comparator' => 'like',
+        'value' => $data['search']
+      );
+
+    } else if(isset($data['location'])) {
+      if(is_numeric($data['location'])) {
+        $type = 'postal';
+      } else {
+        $type = 'city';
+      }
+
+      $conditions[] = array(
+        'field' => $type,
+        'comparator' => 'like',
+        'value' => $data['location']
+      );
+    }
+
+    $events = $this->eventDAO->search($conditions, true);
+
+    $values = array();
+
+    foreach ($events as $event) {
+      $result[] = array(
+        'type' => $type,
+        'value' => $event[$type]
+      );
+    }
+
+    $result = $this->multi_unique($result);
+
+    echo json_encode(array(
+      'inputName' => $inputName,
+      'options' => $result));
+  }
+
+  private function multi_unique($src){
+     $output = array_map("unserialize",
+     array_unique(array_map("serialize", $src)));
+     return $output;
+  }
+
+  private function getConditions($data) {
+    $conditions = array();
+
+    if(!empty($data)){
+      /*foreach ($data as $usedFilter) {
+        if($usedFilter->type === 'stad') {
+          $conditions[] = array(
+            'field' => 'city',
+            'comparator' => 'like',
+            'value' => $usedFilter->value
+          );
+        } else if ($usedFilter->type === 'postcode') {
+          $conditions[] = array(
+            'field' => 'postal',
+            'comparator' => 'like',
+            'value' => $usedFilter->value
+          );
+        } else if($usedFilter->type === 'naam') {
+          $conditions[] = array(
+            'field' => 'title',
+            'comparator' => 'like',
+            'value' => $usedFilter->value
+          );
+        } else if($usedFilter->type === 'tag') {
+          $conditions[] = array(
+            'field' => 'tag',
+            'comparator' => 'like',
+            'value' => $usedFilter->value
+          );
+        }*/
+
+        foreach ($filters as $value) {
+          $conditions[] = array(
+            'field' => $value->type,
+            'comparator' => '=',
+            'value' => $value->value
+          );
+        }
+      }
+
+    return $conditions;
+  }
 
   private function getActivitiesByFilter($data) {
     $filters = json_decode($data['filters']);
