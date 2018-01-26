@@ -92,10 +92,43 @@ class EventsController extends Controller {
           array('type' => 'tag', 'name' => 'test2')
         )));
         exit();
+      } else if ($_POST['action'] === 'getActivities') {
+        $this->getActivitiesByFilter($_POST);
+        exit();
       }
     }
   }
 
   public function activiteitdetail() {}
+
+  private function getActivitiesByFilter($data) {
+    $filters = json_decode($data['filters']);
+
+    $conditions = array();
+    $result = array();
+
+    foreach ($filters as $value) {
+      $conditions[] = array(
+        'field' => $value->type,
+        'comparator' => '=',
+        'value' => $value->value
+      );
+    }
+
+    $events = $this->eventDAO->search($conditions);
+
+    foreach ($events as $event) {
+      $result[] = array(
+        'id' => $event['id'],
+        'title' => $event['title'],
+        'date' => $event['start'],
+        'tags' => $event['tags'],
+        'imageSource' => $event['mainImageSource'],
+        'imageAlt' => $event['mainImageAlt']
+      );
+    }
+
+    echo json_encode(array_slice($result, $data['startId'], $data['endId']));
+  }
 
 }

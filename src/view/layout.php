@@ -27,11 +27,11 @@
       <h1><span>Week van de mobiliteit</span></h1>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="#">Over de week</a></li>
           <li><a href="#">Nieuws</a></li>
           <li><a href="#">Zelf iets organiseren?</a></li>
-          <li><a href="#" class="btn">Ontdek de acties</a></li>
+          <li><a href="index.php?page=activiteiten" class="btn">Ontdek de acties</a></li>
         </ul>
       </nav>
     </div>

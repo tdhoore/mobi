@@ -154,6 +154,10 @@ export default class SearchSuggestion extends CustomDropDown {
     return results;
   }
 
+  getFilters() {
+    return this.selectedTags;
+  }
+
   getFilterUrl($input) {
     let $form = $input.parentElement.parentElement.parentElement;
 

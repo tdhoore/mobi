@@ -288,6 +288,7 @@ footer {
   margin-bottom: 1rem;
 
   & img {
+    align-self: flex-start;
     width: 10rem;
     height: 10rem;
     margin-right: 1rem;
@@ -321,10 +322,12 @@ footer {
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
 
   & li {
     padding: .4rem;
     margin-right: .5rem;
+    margin-bottom: .5rem;
     background-color: var(--accentColor);
   }
 
@@ -586,7 +589,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 675px) {
 
   .mainHeader {
     position: fixed;
@@ -777,6 +780,13 @@ footer {
     & img {
       width: 100%;
       height: auto;
+    }
+  }
+
+  .activiteitenHolder {
+
+    & a {
+      margin-bottom: 2rem;
     }
   }
 

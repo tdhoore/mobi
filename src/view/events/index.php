@@ -89,7 +89,7 @@
     </header>
     <img src="assets/img/1421762317_web.jpg" alt="test"/>
   </article>
-  <a href="#" class="btn">Meer activiteiten</a>
+  <a href="#" class="btn">Meer nieuws</a>
 </section>
 <article class="shareUs">
   <header>
