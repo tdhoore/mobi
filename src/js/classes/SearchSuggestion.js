@@ -106,7 +106,7 @@ export default class SearchSuggestion extends CustomDropDown {
 
     formData.append(`inputName`, $input.name);
     formData.append(`action`, `getFilter`);
-    formData.append(`usedFilters`, this.selectedTags);
+    formData.append(`usedFilters`, JSON.stringify(this.selectedTags));
     formData.append($input.name, $input.value);
 
     fetch(this.getFilterUrl($input), {
@@ -132,7 +132,7 @@ export default class SearchSuggestion extends CustomDropDown {
 
   createOptions(inputName, options) {
     const results = [];
-
+    console.log(this.selectedTags);
     Object.keys(options).forEach(key => {
       const option = options[key];
       const $li = document.createElement(`li`);

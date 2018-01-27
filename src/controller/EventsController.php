@@ -14,58 +14,6 @@ class EventsController extends Controller {
   public function index() {
     $conditions = array();
 
-    //example: search on title
-    // $conditions[] = array(
-    //   'field' => 'title',
-    //   'comparator' => 'like',
-    //   'value' => 'leie'
-    // );
-
-    //example: search on organiser_id
-    // $conditions[] = array(
-    //   'field' => 'organiser_id',
-    //   'comparator' => '=',
-    //   'value' => 8
-    // );
-
-    //example: search on organiser name
-    // $conditions[] = array(
-    //   'field' => 'organiser',
-    //   'comparator' => 'like',
-    //   'value' => 'brussel'
-    // );
-
-    //example: search on tag name
-    // $conditions[] = array(
-    //   'field' => 'tag',
-    //   'comparator' => '=',
-    //   'value' => 'e-bike'
-    // );
-
-    //example: 1-day events on september 17
-    // $conditions[] = array(
-    //   'field' => 'start',
-    //   'comparator' => '>=',
-    //   'value' => '2018-09-17 00:00:00'
-    // );
-    // $conditions[] = array(
-    //   'field' => 'end',
-    //   'comparator' => '<=',
-    //   'value' => '2018-09-17 23:59:59'
-    // );
-
-    //example: events on september 17 (includes multi-day events)
-    // $conditions[] = array(
-    //   'field' => 'start',
-    //   'comparator' => '<=',
-    //   'value' => '2018-09-17 23:59:59'
-    // );
-    // $conditions[] = array(
-    //   'field' => 'end',
-    //   'comparator' => '>=',
-    //   'value' => '2018-09-17 00:00:00'
-    // );
-
     //example: search on organiser, with certain end date + time
     $conditions[] = array(
       'field' => 'organiser',
@@ -107,7 +55,7 @@ class EventsController extends Controller {
     $type = '';
 
     //go through the used filters and look what is already used
-    $conditions = $this->getConditions($data['usedFilters']);
+    $conditions = $this->getConditions(json_decode($data['usedFilters']));
 
     //search for things by name, city, postcode
     if(isset($data['search'])) {
@@ -160,35 +108,8 @@ class EventsController extends Controller {
   private function getConditions($data) {
     $conditions = array();
 
-    if(!empty($data)){
-      /*foreach ($data as $usedFilter) {
-        if($usedFilter->type === 'stad') {
-          $conditions[] = array(
-            'field' => 'city',
-            'comparator' => 'like',
-            'value' => $usedFilter->value
-          );
-        } else if ($usedFilter->type === 'postcode') {
-          $conditions[] = array(
-            'field' => 'postal',
-            'comparator' => 'like',
-            'value' => $usedFilter->value
-          );
-        } else if($usedFilter->type === 'naam') {
-          $conditions[] = array(
-            'field' => 'title',
-            'comparator' => 'like',
-            'value' => $usedFilter->value
-          );
-        } else if($usedFilter->type === 'tag') {
-          $conditions[] = array(
-            'field' => 'tag',
-            'comparator' => 'like',
-            'value' => $usedFilter->value
-          );
-        }*/
-
-        foreach ($filters as $value) {
+    if(isset($data)){
+        foreach ($data as $value) {
           $conditions[] = array(
             'field' => $value->type,
             'comparator' => '=',

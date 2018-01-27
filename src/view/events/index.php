@@ -59,7 +59,14 @@
       <h3>Title</h3>
       <p>16 september 2018</p>
     </header>
-    <img src="assets/img/1421762317_web.jpg" alt="test"/>
+    <picture>
+      <source media="(min-width: 675px)" srcset="http://via.placeholder.com/240x160 240w,
+      http://via.placeholder.com/300x200 300w,
+      http://via.placeholder.com/380x280 380w
+      " sizes="(max-width: 839px)190px, (min-width: 840px)120px">
+      <source media="(min-width: 0px)" srcset="http://via.placeholder.com/210x210">
+      <img src="http://via.placeholder.com/380x280" alt=""/>
+    </picture>
   </article>
   <article class="imageArticle">
     <header class="titleAccent">
