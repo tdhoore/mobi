@@ -20,6 +20,7 @@
       <label for="date">
         <span>op</span>
         <select class="" name="date" id="date">
+          <option value="0">Alles</option>
           <option value="1">16/09</option>
           <option value="2">17/09</option>
           <option value="3">18/09</option>

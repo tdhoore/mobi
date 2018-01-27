@@ -43,7 +43,28 @@ class EventsController extends Controller {
   }
 
   public function activiteitdetail() {
+    if(!empty($_GET['id'])) {
+      $conditions = array();
 
+      $conditions[] = array(
+        'field' => 'id',
+        'comparator' => '=',
+        'value' => $_GET['id']
+      );
+
+      $event = $this->eventDAO->search($conditions);
+
+      $extraInfo = $event[0];
+
+      $this->set('extraInfo', $extraInfo);
+      $this->set('date', $this->createDate($extraInfo));
+    }
+  }
+
+  private function createDate($data) {
+    $startDate = new DateTime($data['start']);
+    $endDate = new DateTime($data['end']);
+    return $startDate->format('d/m/y').' - '.$startDate->format('H').' tot '.$endDate->format('H').' uur';
   }
 
   private function getSuggestionsByFilter($data){
@@ -81,7 +102,7 @@ class EventsController extends Controller {
       );
     }
 
-    $events = $this->eventDAO->search($conditions, true);
+    $events = $this->eventDAO->search($conditions);
 
     $values = array();
 

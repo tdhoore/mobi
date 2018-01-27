@@ -263,7 +263,7 @@ footer {
     margin-bottom: 0;
   }
 
-  & img:first-of-type, & .doubleImage {
+  & picture:first-of-type, & .doubleImage, & img:first-of-type {
     order: -1;
     margin-bottom: 1rem;
 
@@ -431,7 +431,6 @@ footer {
     z-index: 200;
     top: 100%;
     left: 0;
-    width: 100%;
     background-color: var(--bg2Color);
     max-height: 0;
     overflow: hidden;
@@ -590,6 +589,10 @@ footer {
   }
 }
 
+.doubleImage picture:last-of-type img {
+  display: none;
+}
+
 @media only screen and (min-width: 675px) {
 
   .mainHeader {
@@ -735,6 +738,10 @@ footer {
     & .doubleImage img:first-of-type {
       margin: 0 0 2rem;
     }
+
+    & .doubleImage picture:last-of-type img {
+      display: block;
+    }
   }
 
   .reverseArticle {
@@ -763,7 +770,7 @@ footer {
       grid-row: 2 / 3;
     }
 
-    & img {
+    & img, & picture {
       grid-column: 1 / 2;
       grid-row: 1 / -1;
     }
@@ -969,6 +976,10 @@ footer {
 
     & ul li {
       margin-left: 6rem;
+    }
+
+    & ul li:first-of-type {
+      margin-left: 0;
     }
   }
 

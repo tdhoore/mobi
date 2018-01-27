@@ -31,6 +31,8 @@ class EventDAO extends DAO {
         $columnName = 'ma3_auto_tags.id';
       } else if($columnName == 'tag') {
         $columnName = 'ma3_auto_tags.tag';
+      } else if($columnName == 'id') {
+        $columnName = 'ma3_auto_events.id';
       }
       //handle functions
       if(!empty($condition['function'])) {

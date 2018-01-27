@@ -1,12 +1,12 @@
 <article class="activityInfo">
   <header class="activityInfoHeader">
-    <h2 class="titleAccent">Autovrije zondag Sint-Niklaas: Hendrik Heymanplein</h2>
+    <h2 class="titleAccent"><?php echo $extraInfo['title']; ?></h2>
     <div class="dateAndTags">
-      <p>16/09/18 - 14 tot 18uur</p>
+      <p><?php echo $date; ?></p>
       <ul class="tags">
-        <li>familie</li>
-        <li>duurzaam</li>
-        <li>eco</li>
+        <?php foreach ($extraInfo['tags'] as $value) {
+          echo '<li>'. $value['tag'] .'</li>';
+        } ?>
       </ul>
     </div>
     <div class="shareLink">
@@ -18,21 +18,21 @@
     </div>
   </header>
   <img src="http://via.placeholder.com/340x140" alt=""/>
-  <p>Op zondag 16 september 2017 is het feest in de stadskern. De auto’s blijven die dag aan de kant en voetgangers en fietsers nemen de straten en pleinen in. Tientallen
-creatieve doeactiviteiten maken van autovrije zondag opnieuw een
-hoogdag van de zachte mobiliteit.</p>
+  <p><?php echo $extraInfo['mainText']; ?></p>
   <article class="address">
     <header class="titleAccent">
       <h3>Waar is dit?</h3>
     </header>
     <address>
-      <span class="locName">Hendrik Heymanplein</span>
-      <span>Hendrik Heymanplein</span>
-      <span>Sint-Niklaas 9100</span>
+      <span class="locName"><?php echo $extraInfo['location']; ?></span>
+      <span><?php echo $extraInfo['address']; ?></span>
+      <span><?php echo $extraInfo['city']; ?> <?php echo $extraInfo['postal']; ?></span>
     </address>
     <a href="#" class="btn ghostBtn">Toon op google maps</a>
   </article>
 </article>
+<?php echo $extraInfo['content']; ?>
+<!--
 <section class="extraInfo">
   <header class="hide">
     <h3>Extra information</h3>
@@ -79,17 +79,26 @@ hoogdag van de zachte mobiliteit.</p>
       <p>Van die typische bommakasten, waar de kringloopcentra van uitpuilen omdat niemand ze nog wil, kent u die? Wel deze werden omgeturnd tot een zeepkist. Benieuwd? Neem dan zeker deel aan de race of aanschouw dit spektakel als toeschouwer.</p>
     </article>
   </div>
-</section>
+</section>-->
+<?php if(!empty($extraInfo['practical'])){ ?>
 <article class="textArticle praktischeInfo">
   <header class="titleAccent">
     <h3>Praktische informatie</h3>
   </header>
-  <p> Op zondag 17 september is er van 12 tot 19 uur geen verkeer mogelijk in een groot deel van de stadskern. De afbakening van de autovrije zone vindt u op het plan. Activiteiten vinden plaats tussen 14 en 18 uur. Ter gelegenheid van autovrije zondag biedt het stadsbestuur u gratis busvervoer aan. U hoeft hiervoor niets te ondernemen,
-gewoon op de bus stappen.</p>
-<article class="websiteLink">
-  <header class="titleAccent">
-    <h4>Bekijk ook zeker onze website</h4>
-  </header>
-  <a href="https://www.sint-niklaas.be/autovrij" class="btn ghostBtn">www.sint-niklaas.be/autovrij</a>
+  <p><?php echo $extraInfo['practical']; ?></p>
+  <article class="websiteLink">
+    <header class="titleAccent">
+      <h4>Bekijk ook zeker onze website</h4>
+    </header>
+    <a href="<?php echo $extraInfo['link']; ?>" class="btn ghostBtn"><?php echo str_replace('http://', '', str_replace('https://', '', $extraInfo['link'])); ?></a>
+  </article>
 </article>
-</article>
+<?php } else { ?>
+  <article class="textArticle praktischeInfo">
+      <header class="titleAccent">
+        <h3>Bekijk ook zeker onze website</h3>
+      </header>
+      <a href="<?php echo $extraInfo['link']; ?>" class="btn ghostBtn"><?php echo str_replace('http://', '', str_replace('https://', '', $extraInfo['link'])); ?></a>
+    </article>
+  </article>
+<?php } ?>
