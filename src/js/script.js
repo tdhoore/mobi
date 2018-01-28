@@ -6,6 +6,8 @@ import GetActivities from './classes/GetActivities';
 const $form = document.querySelector(`.newsLetter`);
 const validator = new Validator({form: $form});
 
+const $filterForm = document.querySelector(`.activiteitenFilter`);
+
 const customSelect = new CustomSelect({selector: `select`, customClass: `customDropDown`, customOpenClass: `customDropDownOpen`, customSelectedClass: `customSelectedItem`});
 
 const filter = new SearchSuggestion({selector: `.suggestion`, customClass: `filterSuggestions`, customOpenClass: `filterSuggestionsOpen`, tagsHolderClass: `filterTags`});
@@ -26,23 +28,20 @@ const init = () => {
       name: `typeMismatch`,
       messages: {
         error: `Please, enter a correct email adress`,
-        okey: `Email oke`,
+        okey: `Looks great!`,
       },
     },
   ]);
 
-  filter.init();
+  if ($filterForm) {
+    filter.init();
 
-  customSelect.init(filter);
+    customSelect.init(filter);
 
-  getActivities.getActivities(`index.php?page=activiteiten`, filter.getFilters());
-  /*getActivities.getActivities(`index.php?page=activiteiten`, [
-    {
-      type: `tag`,
-      value: `kids`,
-    },
-  ]);*/
+    getActivities.init($filterForm);
 
+    //getActivities.getActivitiesWithFilter(`index.php?page=activiteiten`, filter.getFilters());
+  }
 };
 
 init();

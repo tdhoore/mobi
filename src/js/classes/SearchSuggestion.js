@@ -144,7 +144,6 @@ export default class SearchSuggestion extends CustomDropDown {
   }
 
   handleAjaxResult(results) {
-    console.log(results);
     const $input = document.querySelector(`input[name="${results.inputName}"]`);
 
     const $customSuggestion = this.getCustomSuggestion($input);

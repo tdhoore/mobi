@@ -21,9 +21,11 @@
         <span>op</span>
         <select class="" name="date" id="date">
           <option value="0">Alles</option>
-          <option value="1">16/09</option>
-          <option value="2">17/09</option>
-          <option value="3">18/09</option>
+          <option value="09-09-2018">09/09</option>
+          <option value="16-09-2018">16/09</option>
+          <option value="17-09-2018">17/09</option>
+          <option value="18-09-2018">18/09</option>
+          <option value="22-09-2018">22/09</option>
         </select>
       </label>
     </div>
@@ -100,5 +102,12 @@
       <img src="http://via.placeholder.com/100x100" alt=""/>
     </article>
   </div>
-  <a href="#" class="btn">Meer activiteiten</a>
+  <form class="getMore" action="index.php?page=activiteiten" method="post">
+    <input type="hidden" name="action" value="getMore"/>
+    <input type="hidden" name="startId" value="1"/>
+    <input type="hidden" name="endId" value="1"/>
+    <input type="hidden" name="search" value="1"/>
+    <input type="hidden" name="location" value="1"/>
+    <input type="submit" name="submit" value="Meer activiteiten" class="btn"/>
+  </form>
 </section>

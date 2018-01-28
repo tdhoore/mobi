@@ -36,6 +36,8 @@ class EventsController extends Controller {
         $this->getSuggestionsByFilter($_POST);
       } else if ($_POST['action'] === 'getActivities') {
         $this->getActivitiesByFilter($_POST);
+      } else if ($_POST['action'] === 'filter') {
+        $this->getActivitiesByForm($_POST);
       }
 
       exit();
@@ -59,6 +61,78 @@ class EventsController extends Controller {
       $this->set('extraInfo', $extraInfo);
       $this->set('date', $this->createDate($extraInfo));
     }
+  }
+
+  private function getActivitiesByForm($data) {
+    $conditions = array();
+    $result = array();
+    $result['error'] = false;
+
+    $conditions[] = array(
+      'field' => 'title',
+      'comparator' => 'like',
+      'value' => $data['search']
+    );
+
+    $events = $this->eventDAO->search($conditions);
+
+    if(!$events) {
+      $conditions = array();
+
+      $conditions[] = array(
+        'field' => 'tag',
+        'comparator' => 'like',
+        'value' => $data['search']
+      );
+    }
+
+    if(is_numeric($data['location'])) {
+      $conditions[] = array(
+        'field' => 'postal',
+        'comparator' => 'like',
+        'value' => $data['location']
+      );
+    } else {
+      $conditions[] = array(
+        'field' => 'city',
+        'comparator' => 'like',
+        'value' => $data['location']
+      );
+    }
+
+    if($data['date'] !== "0") {
+      $date = new DateTime($data['date']);
+      $date = $date->format('Y-m-d H:i:s');
+    } else {
+      $date = 0;
+    }
+
+
+    $conditions[] = array(
+      'field' => 'start',
+      'comparator' => '>=',
+      'value' => $date
+    );
+
+    $events = $this->eventDAO->search($conditions);
+
+    if(!$events){
+      $result['error'] = true;
+
+      $events = $this->eventDAO->search(array());
+    }
+
+    foreach ($events as $event) {
+      $result[] = array(
+        'id' => $event['id'],
+        'title' => $event['title'],
+        'date' => $event['start'],
+        'tags' => $event['tags'],
+        'imageSource' => $event['mainImageSource']
+      );
+    }
+
+    echo json_encode(array_slice($result, 0, 7));
   }
 
   private function createDate($data) {

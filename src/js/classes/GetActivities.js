@@ -3,10 +3,13 @@ export default class GetActivities {
     containerSelector: ``,
     amount: 6,
   }) {
-    this.container = document.querySelector(param.containerSelector);
+    this.containerSelector = param.containerSelector;
+    this.container;
     this.amount = param.amount;
     this.startId = 1;
     this.endId = this.amount;
+
+    this.filterForm;
 
     this.months = [
       `January`,
@@ -24,16 +27,38 @@ export default class GetActivities {
     ];
 
     this.ajaxListener = r => this.handleAjax(r);
+    this.formListener = e => this.handleFormSubmit(e);
   }
 
-  getActivities(url, filters) {
-    const formData = this.createFormData(filters);
+  init($filterForm) {
+    this.container = document.querySelector(this.containerSelector);
+
+    this.filterForm = $filterForm;
+    this.filterForm.addEventListener(`submit`, this.formListener);
+  }
+
+  handleFormSubmit(e) {
+    e.preventDefault();
+
+    this.getActivitiesWithFields(e.currentTarget.getAttribute(`action`));
+  }
+
+  getActivities(url, formData) {
     fetch(url, {
       headers: new Headers({Accept: `application/json`}),
       credentials: `same-origin`,
       method: `POST`,
       body: formData,
     }).then(r => r.json()).then(this.ajaxListener);
+  }
+
+  getActivitiesWithFilter(url, filters) {
+    const formData = this.createFormData(filters);
+    this.getActivities(url, formData);
+  }
+
+  getActivitiesWithFields(url) {
+    this.getActivities(url, new FormData(this.filterForm));
   }
 
   createFormData(filters) {
@@ -50,7 +75,11 @@ export default class GetActivities {
     console.log(r);
     this.wipeElement(this.container);
 
-    r.forEach(result => this.container.append(this.createActivityLink(result)));
+    Object.keys(r).forEach(key => {
+      if (key !== `error`) {
+        this.container.append(this.createActivityLink(r[key]));
+      }
+    });
   }
 
   createActivityLink(data) {

@@ -100,17 +100,6 @@ input:focus {
   background-color: var(--accentGrey);
 }
 
-.btn {
-  display: inline-block;
-  font-family: var(--mainFont);
-  font-weight: 700;
-  background-color: var(--btnColor);
-  padding: 1.4rem 1rem;
-  text-align: center;
-  width: 100%;
-  cursor: pointer;
-}
-
 .ghostBtn {
   border: solid .2rem var(--btnColor);
   background-color: transparent;
@@ -202,10 +191,23 @@ nav {
   & ul li a {
     display: block;
     text-align: center;
+    text-decoration: underline;
     width: 100%;
     font-family: var(--mainFont);
     padding: 1.4rem 1rem;
   }
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  background-color: var(--btnColor);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 main {
@@ -841,7 +843,7 @@ footer {
 
   .activities {
 
-    & .btn {
+    & .getMore {
       margin: 0 auto;
     }
   }
@@ -982,9 +984,13 @@ footer {
   .shareUs {
     margin-top: 6rem;
 
+    & header {
+      margin-top: 2rem;
+    }
+
     & ul {
       justify-content: center;
-      margin: 8rem 0;
+      margin: 4rem 0 8rem;
     }
 
     & ul li {
