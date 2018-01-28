@@ -195,8 +195,7 @@ class EventsController extends Controller {
         'title' => $event['title'],
         'date' => $event['start'],
         'tags' => $event['tags'],
-        'imageSource' => $event['mainImageSource'],
-        'imageAlt' => $event['mainImageAlt']
+        'imageSource' => $event['mainImageSource']
       );
     }
 

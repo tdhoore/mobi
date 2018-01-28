@@ -6,11 +6,8 @@ export default class SearchSuggestion extends CustomDropDown {
     customClass: ``,
     customOpenClass: ``,
     customSelectedClass: ``,
-    tagsHolderClass: ``,
   }) {
     super({selector: param.selector, customClass: param.customClass, customOpenClass: param.customOpenClass, customSelectedClass: param.customSelectedClass});
-
-    this.tagsHolder = document.querySelector(`.${param.tagsHolderClass}`);
 
     //listeners
     this.inputListener = e => this.handleInput(e);
@@ -38,6 +35,8 @@ export default class SearchSuggestion extends CustomDropDown {
     } else {
       this.wipeElement(this.getCustomSuggestion($input));
     }
+
+    this.removeAllTagsByName($input.name);
   }
 
   handleClickOption(e) {
@@ -45,26 +44,34 @@ export default class SearchSuggestion extends CustomDropDown {
     const $option = e.currentTarget;
     const $input = $option.parentElement.parentElement.parentElement.querySelector(`input`);
 
-    if ($input.name === `search`) {
-      //add options to tags
-      this.addOptionToSelectedTags($option);
-      this.clearValue($input);
-    } else {
-      $input.value = $option.querySelector(`span:last-of-type`).textContent;
-      this.addToSelectedTags(this.getOptionData($option));
-    }
+    $input.value = $option.querySelector(`span:last-of-type`).textContent;
+    this.addToSelectedTags(this.getOptionData($option));
 
-    //preforme reset
+    //preform reset
     this.wipeElement($option.parentElement.parentElement);
   }
 
   addToSelectedTags(optionData) {
-    this.removeAllDates();
+    if (optionData.value === `city` || optionData.value === `postal`) {
+      this.removeAllTagsOfType([`city`, `postal`]);
+    } else {
+      this.removeAllTagsOfType([optionData.type]);
+    }
     this.selectedTags.push(optionData);
   }
 
-  removeAllDates() {
-    this.selectedTags = this.selectedTags.filter(tag => tag.type !== `date`);
+  removeAllTagsByName(name) {
+    if (name === `search`) {
+      this.removeAllTagsOfType([`tag`, `title`]);
+    } else if (name === `location`) {
+      this.removeAllTagsOfType([`postal`, `city`]);
+    }
+  }
+
+  removeAllTagsOfType(types) {
+    types.forEach(type => {
+      this.selectedTags = this.selectedTags.filter(tag => tag.type !== type);
+    });
   }
 
   addOptionToSelectedTags($option) {
@@ -226,5 +233,4 @@ export default class SearchSuggestion extends CustomDropDown {
       }
     });
   }
-
 }

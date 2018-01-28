@@ -19,6 +19,9 @@ export default class Validator {
     if (this.form) {
       //add event listener
       this.form.addEventListener(`submit`, this.listener);
+
+      //turn off default validation
+      this.form.setAttribute(`novalidate`, ``);
     } else {
       return false;
     }

@@ -1,11 +1,11 @@
 export default class GetActivities {
   constructor(param = {
     containerSelector: ``,
-    amount: 4,
+    amount: 6,
   }) {
     this.container = document.querySelector(param.containerSelector);
     this.amount = param.amount;
-    this.startId = 0;
+    this.startId = 1;
     this.endId = this.amount;
 
     this.months = [
@@ -47,6 +47,7 @@ export default class GetActivities {
   }
 
   handleAjax(r) {
+    console.log(r);
     this.wipeElement(this.container);
 
     r.forEach(result => this.container.append(this.createActivityLink(result)));

@@ -7,7 +7,7 @@
     <label for="search">
       <span>Ik zoek</span>
       <span class="textInput">
-        <input type="text" name="search" id="search" placeholder="Naam activiteit" class="suggestion" value=""/>
+        <input type="text" name="search" id="search" placeholder="Naam, tag, ..." class="suggestion" value=""/>
       </span>
     </label>
     <div class="locAndDate">
