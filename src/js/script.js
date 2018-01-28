@@ -31,9 +31,9 @@ const init = () => {
     },
   ]);
 
-  customSelect.init();
-
   filter.init();
+
+  customSelect.init(filter);
 
   //getActivities.getActivities(`index.php?page=activiteiten`, filter.getFilters());
   /*getActivities.getActivities(`index.php?page=activiteiten`, [

@@ -10,13 +10,18 @@ export default class CustomSelect extends CustomDropDown {
     super({selector: param.selector, customClass: param.customClass, customOpenClass: param.customOpenClass, customSelectedClass: param.customSelectedClass});
 
     this.clickFakeSelectListener = e => this.handleClickFakeSelect(e);
+
+    this.selectedOption = `Default`;
+    this.searchSuggestionObj;
   }
 
-  init() {
+  init(searchSuggestionObj) {
     this.inputs.forEach($select => {
       $select.classList.add(`hide`);
       this.createCustomDropDown($select);
     });
+
+    this.searchSuggestionObj = searchSuggestionObj;
   }
 
   getOptions($select) {
@@ -24,7 +29,11 @@ export default class CustomSelect extends CustomDropDown {
   }
 
   createFakeSelect($select) {
-    const $result = this.createEmptyLink($select.querySelector(`option`).textContent);
+    const optionContent = $select.querySelector(`option`).textContent;
+    const $result = this.createEmptyLink(optionContent);
+
+    //set default selected
+    this.selectedOption = optionContent;
 
     //add class
     $result.classList.add(`fakeSelect`);
@@ -54,9 +63,6 @@ export default class CustomSelect extends CustomDropDown {
   handleClickFakeSelect(e) {
     e.preventDefault();
 
-    // add listener to window
-    //window.addEventListener(`click`, this.clickWindow);
-
     //open or close dropdown
     this.toggleOpenDropDown(e.currentTarget.parentElement.querySelector(`ul`));
   }
@@ -82,6 +88,10 @@ export default class CustomSelect extends CustomDropDown {
 
         //set the fake select textContent
         this.setContentToContent($fakeSelect, $customOption);
+
+        this.selectedOption = $customOption.textContent;
+
+        this.addOptionToSelectedTags();
       } else {
         $customOption.classList.remove(this.customSelectedClass);
       }
@@ -96,12 +106,12 @@ export default class CustomSelect extends CustomDropDown {
     }
   }
 
-  handleClickWindow() {
-    this.inputs.forEach($input => {
-      const $customDropDown = $input.parentElement.querySelector(`ul`);
-      if ($customDropDown) {
-        $customDropDown.classList.remove(this.customOpenClass);
-      }
-    });
+  addOptionToSelectedTags() {
+    this.searchSuggestionObj.addToSelectedTags({type: `date`, value: this.selectedOption});
+    console.log(this.searchSuggestionObj.selectedTags);
+  }
+
+  getSelectedOption() {
+    return this.selectedOption;
   }
 }

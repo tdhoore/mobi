@@ -33,26 +33,45 @@ export default class SearchSuggestion extends CustomDropDown {
 
   handleInput(e) {
     const $input = e.currentTarget;
-    this.getSuggestions($input);
+    if ($input.value !== ``) {
+      this.getSuggestions($input);
+    } else {
+      this.wipeElement(this.getCustomSuggestion($input));
+    }
   }
 
   handleClickOption(e) {
     e.preventDefault();
     const $option = e.currentTarget;
+    const $input = $option.parentElement.parentElement.parentElement.querySelector(`input`);
 
-    //add options to tags
-    this.addOptionToSelectedTags($option);
+    if ($input.name === `search`) {
+      //add options to tags
+      this.addOptionToSelectedTags($option);
+      this.clearValue($input);
+    } else {
+      $input.value = $option.querySelector(`span:last-of-type`).textContent;
+      this.addToSelectedTags(this.getOptionData($option));
+    }
 
     //preforme reset
-    this.clearValue($option.parentElement.parentElement.parentElement.querySelector(`input`));
     this.wipeElement($option.parentElement.parentElement);
+  }
+
+  addToSelectedTags(optionData) {
+    this.removeAllDates();
+    this.selectedTags.push(optionData);
+  }
+
+  removeAllDates() {
+    this.selectedTags = this.selectedTags.filter(tag => tag.type !== `date`);
   }
 
   addOptionToSelectedTags($option) {
     const optionData = this.getOptionData($option);
 
     if (this.checkIfTagIsSelected(optionData)) {
-      this.selectedTags.push(optionData);
+      this.addToSelectedTags(optionData);
       this.tagsHolder.append(this.createTag(optionData));
     }
   }
@@ -120,6 +139,7 @@ export default class SearchSuggestion extends CustomDropDown {
   handleAjaxResult(results) {
     console.log(results);
     const $input = document.querySelector(`input[name="${results.inputName}"]`);
+
     const $customSuggestion = this.getCustomSuggestion($input);
 
     if (!$customSuggestion) {
@@ -132,7 +152,6 @@ export default class SearchSuggestion extends CustomDropDown {
 
   createOptions(inputName, options) {
     const results = [];
-    console.log(this.selectedTags);
     Object.keys(options).forEach(key => {
       const option = options[key];
       const $li = document.createElement(`li`);

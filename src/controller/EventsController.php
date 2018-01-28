@@ -72,6 +72,7 @@ class EventsController extends Controller {
 
     $conditions = array();
     $result = array();
+    $events = array();
 
     $type = '';
 
@@ -80,13 +81,30 @@ class EventsController extends Controller {
 
     //search for things by name, city, postcode
     if(isset($data['search'])) {
-      $type = 'title';
+      $type = 'tags';
 
       $conditions[] = array(
-        'field' => 'title',
+        'field' => 'tag',
         'comparator' => 'like',
         'value' => $data['search']
       );
+
+      $events = $this->eventDAO->search($conditions);
+
+      if(!$events) {
+        $type = 'title';
+        $conditions = array();
+
+        $conditions = $this->getConditions(json_decode($data['usedFilters']));
+
+        $conditions[] = array(
+          'field' => 'title',
+          'comparator' => 'like',
+          'value' => $data['search']
+        );
+
+          $events = $this->eventDAO->search($conditions);
+      }
 
     } else if(isset($data['location'])) {
       if(is_numeric($data['location'])) {
@@ -100,20 +118,33 @@ class EventsController extends Controller {
         'comparator' => 'like',
         'value' => $data['location']
       );
-    }
 
-    $events = $this->eventDAO->search($conditions);
+      $events = $this->eventDAO->search($conditions);
+    }
 
     $values = array();
 
-    foreach ($events as $event) {
-      $result[] = array(
-        'type' => $type,
-        'value' => $event[$type]
-      );
-    }
+    if($events) {
+      if($type == 'tags') {
+        foreach ($events as $event) {
+          foreach ($event[$type] as $value) {
+            if (stripos($value['tag'], $data['search']) || stripos($value['tag'], $data['search']) === 0){
+              $result[] = array(
+                'type' => 'tag',
+                'value' => $value['tag']);
+            }
+          }
+        }
+      } else {
+        foreach ($events as $event) {
+          $result[] = array(
+            'type' => $type,
+            'value' => $event[$type]);
+        }
+      }
 
-    $result = $this->multi_unique($result);
+      $result = $this->multi_unique($result);
+    }
 
     echo json_encode(array(
       'inputName' => $inputName,
